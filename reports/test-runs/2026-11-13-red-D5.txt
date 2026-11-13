@@ -1,0 +1,45 @@
+✔ T1: request creates a pending request from a to b (0.618084ms)
+✔ T2: asking again while pending is idempotent (0.167125ms)
+✔ T3: b asking a back turns a pending request into a mutual yes (0.224584ms)
+✔ T4/T5: the recipient accepts or declines; a declined request disappears (0.48325ms)
+✔ T6: a may ask again after being declined (a new pending request) (0.186375ms)
+✔ T7: the sender can cancel a pending request (0.137833ms)
+✔ T8: settle turns a pending or accepted request into history (done) (0.297125ms)
+✔ T9: forget (block) erases everything between two people, including history (0.236792ms)
+✔ T10 (boundary): a pending request expires exactly 7 days after it was sent (0.231167ms)
+✔ T11 (boundary): an accepted connection without a meeting lapses after 48 hours (0.277208ms)
+✔ T12 (boundary): a scheduled meeting keeps the connection open until 2 hours after it starts (0.318416ms)
+✔ I1-I5: invalid transitions are refused and change nothing (0.264541ms)
+✖ D5 (boundary): at most 20 new requests a day, and cancelling does not reset the count (1.392709ms)
+✔ BV-SLOT: proposed times must be more than 5 minutes and less than 30 days ahead, at most 3 (0.298209ms)
+✔ scheduling: only the other person can pick, only a proposed and future time, and unschedule resets (0.321417ms)
+✔ reminders fire once, within 10 minutes before a meeting (0.249833ms)
+✔ random command sequences behave like the model (fast-check, 200 walks) (416.632417ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 16
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 517.048
+
+✖ failing tests:
+
+test at test/unit/background.fsm.test.js:147:1
+✖ D5 (boundary): at most 20 new requests a day, and cancelling does not reset the count (1.392709ms)
+  AssertionError [ERR_ASSERTION]: 21st request in a day is refused
+      at TestContext.<anonymous> (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/unit/background.fsm.test.js:154:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /a lot of requests/,
+    operator: 'match',
+    diff: 'simple'
+  }
