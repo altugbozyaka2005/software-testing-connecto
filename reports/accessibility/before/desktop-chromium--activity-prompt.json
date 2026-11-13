@@ -1,0 +1,33 @@
+{
+  "screen": "activity prompt",
+  "project": "desktop-chromium",
+  "passes": 24,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "nodes": 1,
+      "examples": [
+        ".prompt-input > .btn-primary.btn[type=\"submit\"]"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "help": "Elements must have their visible text as part of their accessible name",
+      "wcag": [
+        "wcag21a",
+        "wcag253"
+      ],
+      "nodes": 1,
+      "examples": [
+        "#screen-activity > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]"
+      ]
+    }
+  ]
+}

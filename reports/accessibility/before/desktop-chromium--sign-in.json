@@ -1,0 +1,22 @@
+{
+  "screen": "sign in",
+  "project": "desktop-chromium",
+  "passes": 25,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "nodes": 4,
+      "examples": [
+        ".tagline > em",
+        ".forgot-row > .link-accent.link-btn[data-goto=\"forgot\"]",
+        "#login-form > .btn-block.btn-primary[type=\"submit\"]"
+      ]
+    }
+  ]
+}

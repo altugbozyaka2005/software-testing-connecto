@@ -1,0 +1,34 @@
+{
+  "screen": "incoming requests panel",
+  "project": "desktop-chromium",
+  "passes": 24,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "nodes": 2,
+      "examples": [
+        ".req-card > .avatar-md.avatar",
+        ".btn-good"
+      ]
+    },
+    {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "help": "Elements must have their visible text as part of their accessible name",
+      "wcag": [
+        "wcag21a",
+        "wcag253"
+      ],
+      "nodes": 1,
+      "examples": [
+        "#screen-matches > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]"
+      ]
+    }
+  ]
+}

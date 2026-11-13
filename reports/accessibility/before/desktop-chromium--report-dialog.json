@@ -1,0 +1,20 @@
+{
+  "screen": "report dialog",
+  "project": "desktop-chromium",
+  "passes": 18,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "nodes": 1,
+      "examples": [
+        ".btn-danger.btn[type=\"submit\"]"
+      ]
+    }
+  ]
+}

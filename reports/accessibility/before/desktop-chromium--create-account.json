@@ -1,0 +1,22 @@
+{
+  "screen": "create account",
+  "project": "desktop-chromium",
+  "passes": 28,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "nodes": 3,
+      "examples": [
+        ".tagline > em",
+        "#register-form > .btn-block.btn-primary[type=\"submit\"]",
+        "#register-form > .switch-hint > .link-accent.link-btn[data-goto=\"login\"]"
+      ]
+    }
+  ]
+}

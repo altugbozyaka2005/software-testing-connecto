@@ -1,0 +1,396 @@
+
+Running 3 tests using 1 worker
+
+[1/3] [desktop-chromium] › test/acceptance/accessibility.spec.js:32:1 › A11Y-1: sign-in, create-account and check-your-inbox screens
+  1) [desktop-chromium] › test/acceptance/accessibility.spec.js:32:1 › A11Y-1: sign-in, create-account and check-your-inbox screens 
+
+    Error: [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 4,
+      "examples": [
+       ".tagline > em",
+       ".forgot-row > .link-accent.link-btn[data-goto=\"forgot\"]",
+       "#login-form > .btn-block.btn-primary[type=\"submit\"]"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 3,
+      "examples": [
+       ".tagline > em",
+       "#register-form > .btn-block.btn-primary[type=\"submit\"]",
+       "#register-form > .switch-hint > .link-accent.link-btn[data-goto=\"login\"]"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 2,
+      "examples": [
+       "#resend-btn",
+       ".logout-btn.link-accent.link-btn"
+      ]
+     }
+    ]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 46
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "examples": Array [
+    +       ".tagline > em",
+    +       ".forgot-row > .link-accent.link-btn[data-goto=\"forgot\"]",
+    +       "#login-form > .btn-block.btn-primary[type=\"submit\"]",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 4,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       ".tagline > em",
+    +       "#register-form > .btn-block.btn-primary[type=\"submit\"]",
+    +       "#register-form > .switch-hint > .link-accent.link-btn[data-goto=\"login\"]",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 3,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       "#resend-btn",
+    +       ".logout-btn.link-accent.link-btn",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 2,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    + ]
+
+      38 |   await expect(page.locator('#screen-verify')).toBeVisible();
+      39 |   const verify = await audit(page, 'check your inbox');
+    > 40 |   expect(severe([...login, ...reg, ...verify]), JSON.stringify(severe([...login, ...reg, ...verify]), null, 1)).toEqual([]);
+         |                                                                                                                 ^
+      41 | });
+      42 |
+      43 | test('A11Y-2: activity prompt, matches with a card, incoming panel, call and report dialog', async ({ browser }) => {
+        at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/acceptance/accessibility.spec.js:40:113
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/acceptance-accessibility-A-2ad59-nd-check-your-inbox-screens-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/acceptance-accessibility-A-2ad59-nd-check-your-inbox-screens-desktop-chromium/error-context.md
+
+    Error Context: test-results/acceptance-accessibility-A-2ad59-nd-check-your-inbox-screens-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/acceptance-accessibility-A-2ad59-nd-check-your-inbox-screens-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/acceptance-accessibility-A-2ad59-nd-check-your-inbox-screens-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[2/3] [desktop-chromium] › test/acceptance/accessibility.spec.js:43:1 › A11Y-2: activity prompt, matches with a card, incoming panel, call and report dialog
+  2) [desktop-chromium] › test/acceptance/accessibility.spec.js:43:1 › A11Y-2: activity prompt, matches with a card, incoming panel, call and report dialog 
+
+    Error: [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 1,
+      "examples": [
+       ".prompt-input > .btn-primary.btn[type=\"submit\"]"
+      ]
+     },
+     {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "help": "Elements must have their visible text as part of their accessible name",
+      "wcag": [
+       "wcag21a",
+       "wcag253"
+      ],
+      "nodes": 1,
+      "examples": [
+       "#screen-activity > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 1,
+      "examples": [
+       "#screen-matches > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"] > .me-avatar.avatar-sm.avatar"
+      ]
+     },
+     {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "help": "Elements must have their visible text as part of their accessible name",
+      "wcag": [
+       "wcag21a",
+       "wcag253"
+      ],
+      "nodes": 1,
+      "examples": [
+       "#screen-matches > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 2,
+      "examples": [
+       ".req-card > .avatar-md.avatar",
+       ".btn-good"
+      ]
+     },
+     {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "help": "Elements must have their visible text as part of their accessible name",
+      "wcag": [
+       "wcag21a",
+       "wcag253"
+      ],
+      "nodes": 1,
+      "examples": [
+       "#screen-matches > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 3,
+      "examples": [
+       ".avatar-xl",
+       "#leave-btn > span",
+       "#chat-form > .btn-primary.btn[type=\"submit\"]"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+       "wcag2aa",
+       "wcag143"
+      ],
+      "nodes": 1,
+      "examples": [
+       ".btn-danger.btn[type=\"submit\"]"
+      ]
+     }
+    ]
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -   1
+    + Received  + 109
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "examples": Array [
+    +       ".prompt-input > .btn-primary.btn[type=\"submit\"]",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 1,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       "#screen-activity > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]",
+    +     ],
+    +     "help": "Elements must have their visible text as part of their accessible name",
+    +     "id": "label-content-name-mismatch",
+    +     "impact": "serious",
+    +     "nodes": 1,
+    +     "wcag": Array [
+    +       "wcag21a",
+    +       "wcag253",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       "#screen-matches > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"] > .me-avatar.avatar-sm.avatar",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 1,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       "#screen-matches > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]",
+    +     ],
+    +     "help": "Elements must have their visible text as part of their accessible name",
+    +     "id": "label-content-name-mismatch",
+    +     "impact": "serious",
+    +     "nodes": 1,
+    +     "wcag": Array [
+    +       "wcag21a",
+    +       "wcag253",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       ".req-card > .avatar-md.avatar",
+    +       ".btn-good",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 2,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       "#screen-matches > .topbar > .topbar-actions > .account > .me-pill[aria-label=\"Account menu\"]",
+    +     ],
+    +     "help": "Elements must have their visible text as part of their accessible name",
+    +     "id": "label-content-name-mismatch",
+    +     "impact": "serious",
+    +     "nodes": 1,
+    +     "wcag": Array [
+    +       "wcag21a",
+    +       "wcag253",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       ".avatar-xl",
+    +       "#leave-btn > span",
+    +       "#chat-form > .btn-primary.btn[type=\"submit\"]",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 3,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    +   Object {
+    +     "examples": Array [
+    +       ".btn-danger.btn[type=\"submit\"]",
+    +     ],
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": 1,
+    +     "wcag": Array [
+    +       "wcag2aa",
+    +       "wcag143",
+    +     ],
+    +   },
+    + ]
+
+      62 |   await ca.close();
+      63 |   await cb.close();
+    > 64 |   expect(severe(all), JSON.stringify(severe(all), null, 1)).toEqual([]);
+         |                                                             ^
+      65 | });
+      66 |
+      67 | test('A11Y-3: everything on the sign-in screen can be reached and used with the keyboard alone', async ({ page }) => {
+        at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/acceptance/accessibility.spec.js:64:61
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/acceptance-accessibility-A-c1189-anel-call-and-report-dialog-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/acceptance-accessibility-A-c1189-anel-call-and-report-dialog-desktop-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/acceptance-accessibility-A-c1189-anel-call-and-report-dialog-desktop-chromium/error-context.md
+
+    Error Context: test-results/acceptance-accessibility-A-c1189-anel-call-and-report-dialog-desktop-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/acceptance-accessibility-A-c1189-anel-call-and-report-dialog-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/acceptance-accessibility-A-c1189-anel-call-and-report-dialog-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+[3/3] [desktop-chromium] › test/acceptance/accessibility.spec.js:67:1 › A11Y-3: everything on the sign-in screen can be reached and used with the keyboard alone
+  2 failed
+    [desktop-chromium] › test/acceptance/accessibility.spec.js:32:1 › A11Y-1: sign-in, create-account and check-your-inbox screens 
+    [desktop-chromium] › test/acceptance/accessibility.spec.js:43:1 › A11Y-2: activity prompt, matches with a card, incoming panel, call and report dialog 
+  1 passed (12.6s)

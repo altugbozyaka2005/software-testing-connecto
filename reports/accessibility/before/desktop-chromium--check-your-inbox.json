@@ -1,0 +1,21 @@
+{
+  "screen": "check your inbox",
+  "project": "desktop-chromium",
+  "passes": 19,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "nodes": 2,
+      "examples": [
+        "#resend-btn",
+        ".logout-btn.link-accent.link-btn"
+      ]
+    }
+  ]
+}

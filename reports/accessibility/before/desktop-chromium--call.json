@@ -1,0 +1,22 @@
+{
+  "screen": "call",
+  "project": "desktop-chromium",
+  "passes": 22,
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "nodes": 3,
+      "examples": [
+        ".avatar-xl",
+        "#leave-btn > span",
+        "#chat-form > .btn-primary.btn[type=\"submit\"]"
+      ]
+    }
+  ]
+}
