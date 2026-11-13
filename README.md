@@ -14,6 +14,26 @@ npm test           # matcher + end-to-end socket flow
 To try it alone, open two browser windows (one normal, one incognito), create two
 accounts, and enter similar activities.
 
+## Testing (Software Testing coursework)
+
+Start at [`docs/`](docs/): [requirements & strategy](docs/requirements.md) (LO1) · [test plan](docs/test-plan.md) (LO2) ·
+[test log & defects D1–D10](docs/test-log.md) (LO3) · [evaluation, coverage, mutation, targets](docs/evaluation.md) (LO4) ·
+[code review](docs/code-review.md) and [CI](docs/ci.md) (LO5) · [A/B testing](docs/ab-testing.md) ·
+[usability study](docs/acceptance/usability-study.md) and [heuristic evaluation](docs/acceptance/heuristic-evaluation.md).
+
+| Level / kind | Where | Run |
+|---|---|---|
+| Unit (partition, boundaries, pairwise, decision table, state machine) | `test/unit/` | `npm run test:unit` |
+| Property-based and fuzzing (fast-check) | `test/property/` | `npm run test:property` |
+| Integration (real sockets + HTTP, in-memory DB, crash oracle) | `test/integration/` | `npm run test:integration` |
+| All of the above with coverage thresholds | | `npm test` / `npm run test:coverage` |
+| System + acceptance in browsers (desktop + phone), accessibility, usability metrics | `test/system/`, `test/acceptance/` | `npx playwright install chromium && npm run test:system` |
+| Mutation testing (Stryker) | `stryker.config.json` | `npm run test:mutation` |
+| Performance / stress | `test/performance/` | `npm run test:perf` |
+| Offline A/B of the matcher | `test/ab/` | `npm run test:ab` (needs the model: `node scripts/fetch-model.js`) |
+
+Results and evidence are in [`reports/`](reports/). Instrumentation: `GET /metrics` with `METRICS_TOKEN` set (`metrics.js`).
+
 ## Production (reference only)
 
 > **software-testing-connecto** is a separate testing copy of Connecto. It has no deploy script and

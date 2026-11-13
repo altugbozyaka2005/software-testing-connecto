@@ -1,0 +1,56 @@
+# CI pipeline (LO5.2–5.4)
+
+Two equivalent definitions: [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) (GitHub Actions, where this
+repository is hosted) and [`.gitlab-ci.yml`](../.gitlab-ci.yml) (University GitLab, the course default).
+
+## 5.2 Design
+
+```
+push / merge request ──▶ static ──▶ test ──┬──▶ system ───────────────▶ (artifacts: Playwright report,
+                          lint      unit     │    browsers, desktop+phone      accessibility, usability metrics)
+                                    property ├──▶ mutation  (main + nightly) ▶ (artifact: mutation.html; breaks < 60%)
+                                    integr.  └──▶ perf + A/B (weekly / manual) (artifacts: latency.md, matcher-ab.md)
+                                    coverage
+```
+
+| Stage | Runs | Why here | Typical time |
+|---|---|---|---|
+| static | `node --check` on every server module | cheapest possible failure first | < 1 min |
+| test | unit + property + integration (163 tests) with c8 thresholds (lines ≥ 90%, branches ≥ 80%); JUnit + Cobertura reports | every push: fast (≈ 6 s of tests) and catches most defects (D1–D6, D10 were found at these levels) | ≈ 2 min incl. `npm ci` |
+| system | Playwright: system journeys, user-story acceptance tests, axe audit, usability metrics; desktop + Pixel 7 | needs browsers; slower; found D7–D9 | ≈ 3 min |
+| mutation | Stryker on 8 domain modules | too slow for every push (~30 min); nightly and on main keeps the suites honest | ≈ 30 min |
+| perf / A/B | latency stress test and matcher A/B | noisy on shared runners (results are indicative, not a gate); weekly trend + on demand | ≈ 10 min |
+
+Design decisions: the 280 MB matching model is cached between runs (key never changes unless the model does);
+socket tests run with `EMBEDDINGS=off` so only `semantic.test.js` and the A/B depend on the model; browser tests get
+one retry in CI only (WebRTC timing), and keep a trace on failure for diagnosis; no deployment stage, since this
+testing copy deliberately has no deploy script (README).
+
+## 5.3 What is automated, and what the pipeline would catch
+
+| Kind of issue | Caught by | Example from this project |
+|---|---|---|
+| crash on hostile input | test (fuzzing + crash oracle) | D1, D4, D6 would fail the `test` job |
+| broken business rule at a boundary | test (unit) | D5 (request limit), D2 (report reasons), age 18 boundary |
+| matching regression | test (unit + properties), perf/A-B (quality trend) | D3; a change to `CATEGORIES` that lowers A/B accuracy |
+| UI journey or layout broken | system | D7, D9; a renamed button breaks ST-1/US-1 |
+| accessibility regression | system (axe) | D8; a new low-contrast colour |
+| weaker tests (assertions deleted) | mutation | score drops below 60% → job fails |
+| coverage drop | test (c8 thresholds) | new untested module |
+| performance regression | perf (manual gate) | recompute p95 doubling at 100 users |
+
+Not automated: the usability study with people, code review (done by hand, docs/code-review.md), security scanning
+(proposed: `npm audit --audit-level=high` and an OWASP ZAP baseline scan as an extra stage).
+
+## 5.4 Evidence that the pipeline works
+
+1. **The exact `static` + `test` stage commands in a clean `node:24` container** (the image `.gitlab-ci.yml` uses), from
+   a `git archive` of the committed code: lint passes, 163/163 tests, coverage 94.74% lines / 88.22% branches, JUnit
+   and Cobertura files produced. Log: [`reports/test-runs/ci-local-docker-node24.txt`](../reports/test-runs/ci-local-docker-node24.txt).
+2. **The pipeline fails when it should:** the red commits (`690da25`, `040bd21`, `343f218`, `8bc0328`, `a2ccd56`,
+   `9b7c669`, `512121d`) each contain a test that fails on the code at that commit, with the saved run logs listed in
+   test-log.md. Re-running the pipeline at those commits would fail the `test` or `system` job; at the following
+   `fix:` commits it passes.
+3. **Both YAML files parse** and define the jobs above (checked with PyYAML).
+4. **GitHub Actions runs:** pending. They start when the branch is pushed to GitHub (links to be added here and in the
+   portfolio: Actions tab of the repository).

@@ -1,0 +1,52 @@
+Unable to find image 'node:24' locally
+24: Pulling from library/node
+72ceec62e5c6: Pulling fs layer
+a31a98848e2c: Pulling fs layer
+f69d15bc5459: Pulling fs layer
+f59e747f549e: Pulling fs layer
+dd3cb061053d: Pulling fs layer
+92caadca69c9: Pulling fs layer
+733b529261d3: Pulling fs layer
+df8af2c9772e: Pulling fs layer
+72ceec62e5c6: Download complete
+dd3cb061053d: Download complete
+92caadca69c9: Download complete
+f69d15bc5459: Download complete
+f59e747f549e: Download complete
+733b529261d3: Download complete
+1b0fdd5cdb7c: Download complete
+f59e747f549e: Pull complete
+92caadca69c9: Pull complete
+3adb53d60635: Download complete
+df8af2c9772e: Download complete
+df8af2c9772e: Pull complete
+a31a98848e2c: Download complete
+733b529261d3: Pull complete
+a31a98848e2c: Pull complete
+72ceec62e5c6: Pull complete
+dd3cb061053d: Pull complete
+f69d15bc5459: Pull complete
+Digest: sha256:9d266751ca3d7fdbe651c878ffd5ad0a42fed49a18c283509267c97f025b7496
+Status: Downloaded newer image for node:24
+== node v24.22.3 npm 11.19.1 ==
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+== stage static: npm run lint ==
+
+> connecto@1.0.0 lint
+> node --check server.js auth.js db.js matcher.js prefs.js safety.js chat.js friends.js background.js mail.js turn.js embeddings.js
+
+== stage test: npm run test:ci ==
+ℹ tests 163
+ℹ pass 163
+ℹ fail 0
+ℹ duration_ms 5415.817336
+All files      |   94.74 |    88.22 |   96.92 |   94.74 |                                           
+Statements   : 94.74% ( 3266/3447 )
+Branches     : 88.22% ( 1289/1461 )
+Functions    : 96.92% ( 189/195 )
+Lines        : 94.74% ( 3266/3447 )
+exit: 0
+-rw-r--r-- 1 root root 267923 Nov 13 01:26 reports/coverage/cobertura-coverage.xml
+-rw-r--r-- 1 root root  27610 Nov 13 01:26 reports/junit.xml
