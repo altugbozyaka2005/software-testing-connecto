@@ -1,0 +1,46 @@
+
+Running 6 tests using 2 workers
+
+  ✓  1 [mobile-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7] (2.1s)
+  ✓  2 [desktop-chromium] › test/system/journeys.spec.js:11:1 › ST-1: sign up, confirm email, find a match, request, accept, video call, chat, leave (5.1s)
+  ✓  3 [desktop-chromium] › test/system/journeys.spec.js:56:1 › ST-2: registration refuses under-18s and shows field errors in the form (941ms)
+  ✓  4 [desktop-chromium] › test/system/journeys.spec.js:64:1 › ST-3: an unconfirmed account waits on "Check your inbox" and cannot reach matching (969ms)
+  ✓  5 [desktop-chromium] › test/system/journeys.spec.js:74:1 › ST-4: sign out, wrong password, then sign back in (1.7s)
+  ✘  6 [desktop-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7] (1.7s)
+
+
+  1) [desktop-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7] 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 420
+
+      104 |   expect(await sideways()).toBe(0);
+      105 |   await search(page, 'reading a fantasy novel');
+    > 106 |   expect(await sideways()).toBe(0);
+          |                            ^
+      107 |   await page.screenshot({ path: `reports/usability/screens/matches-${test.info().project.name}.png` });
+      108 | });
+      109 |
+        at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/system/journeys.spec.js:106:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/system-journeys-ST-5-mobil-82311-eways-phone-and-desktop-D7--desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/system-journeys-ST-5-mobil-82311-eways-phone-and-desktop-D7--desktop-chromium/error-context.md
+
+    Error Context: test-results/system-journeys-ST-5-mobil-82311-eways-phone-and-desktop-D7--desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/system-journeys-ST-5-mobil-82311-eways-phone-and-desktop-D7--desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/system-journeys-ST-5-mobil-82311-eways-phone-and-desktop-D7--desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7] 
+  5 passed (11.1s)

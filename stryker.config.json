@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "_comment": "Mutation testing (LO4): which faults would the unit + property suites miss? Scope: the pure domain modules where a missed fault changes who is matched, who can register, what is reported or limited. server.js (socket orchestration) is covered by integration tests and is out of scope for time reasons; see docs/evaluation.md.",
+  "testRunner": "tap",
+  "tap": {
+    "testFiles": ["test/unit/*.test.js", "test/property/invariants.test.js"],
+    "nodeArgs": ["--test-reporter=tap"]
+  },
+  "mutate": ["matcher.js", "prefs.js", "safety.js", "chat.js", "friends.js", "background.js", "turn.js", "auth.js:1-320"],
+  "coverageAnalysis": "perTest",
+  "concurrency": 6,
+  "timeoutMS": 20000,
+  "reporters": ["html", "json", "clear-text", "progress"],
+  "htmlReporter": { "fileName": "reports/mutation/mutation.html" },
+  "jsonReporter": { "fileName": "reports/mutation/mutation.json" },
+  "thresholds": { "high": 85, "low": 70, "break": 60 },
+  "ignorePatterns": ["reports", "models", "data", "node_modules", ".git", "test-results", "playwright-report"],
+  "tempDirName": ".stryker-tmp"
+}
