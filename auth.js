@@ -3,6 +3,7 @@ const express = require('express');
 const db = require('./db');
 const prefs = require('./prefs');
 const mail = require('./mail');
+const metrics = require('./metrics');
 
 const COOKIE = 'connecto_sid';
 const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
@@ -163,7 +164,7 @@ function ageOn(dob, today = new Date()) {
 }
 
 function parseDob(s) {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(s))) return null;
+  if (typeof s !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return null; // not String(s): D6
   const d = new Date(`${s}T00:00:00Z`);
   // Reject rollovers like 2001-02-31.
   return !isNaN(d) && d.toISOString().slice(0, 10) === s ? d : null;
@@ -345,7 +346,10 @@ function createAuthRouter({ onLogout = () => {}, onSessionsRevoked = () => {} } 
 
   router.post('/register', limiter, (req, res) => {
     const { errors, value } = validateRegistration(req.body);
-    if (Object.keys(errors).length) return res.status(400).json({ error: 'Please fix the highlighted fields.', fields: errors });
+    if (Object.keys(errors).length) {
+      metrics.inc('auth.register.invalid');
+      return res.status(400).json({ error: 'Please fix the highlighted fields.', fields: errors });
+    }
     if (db.prepare('SELECT 1 FROM users WHERE email = ?').get(value.email)) {
       return res.status(409).json({ error: 'An account with this email already exists.', fields: { email: 'This email is already registered. Try signing in.' } });
     }
@@ -418,7 +422,11 @@ function createAuthRouter({ onLogout = () => {}, onSessionsRevoked = () => {} } 
     const password = typeof req.body?.password === 'string' ? req.body.password : '';
     const user = email && db.prepare('SELECT * FROM users WHERE email = ?').get(email);
     const ok = verifyPassword(password, user ? user.password_hash : DUMMY_HASH);
-    if (!user || !ok) return res.status(401).json({ error: 'Incorrect email or password.' });
+    if (!user || !ok) {
+      metrics.inc('auth.login.failed');
+      return res.status(401).json({ error: 'Incorrect email or password.' });
+    }
+    metrics.inc('auth.login.ok');
     if (user.banned_at) return res.status(403).json({ error: 'This account has been suspended for breaking the community guidelines.' });
     db.prepare('UPDATE users SET last_login_at = ? WHERE id = ?').run(Date.now(), user.id);
     setSessionCookie(req, res, createSession(user.id));
@@ -484,8 +492,14 @@ function socketAuth(socket, next) {
     if (!s) console.log(`[conn] rejected: not signed in (${device}${socket.handshake.headers.cookie ? ', has a cookie' : ', no cookie'})`);
     else if (!s.user.email_verified_at) console.log(`[conn] rejected: account ${s.user.id} email not confirmed (${device})`);
   }
-  if (!s) return next(new Error('unauthorized'));
-  if (!s.user.email_verified_at) return next(new Error('unverified'));
+  if (!s) {
+    metrics.inc('socket.rejected.unauthorized');
+    return next(new Error('unauthorized'));
+  }
+  if (!s.user.email_verified_at) {
+    metrics.inc('socket.rejected.unverified');
+    return next(new Error('unverified'));
+  }
   socket.data.sessionId = s.sessionId;
   socket.data.account = s.user;
   next();

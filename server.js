@@ -7,6 +7,7 @@ const { analyze, score } = require('./matcher');
 const embeddings = require('./embeddings');
 const chat = require('./chat');
 const prefs = require('./prefs');
+const metrics = require('./metrics');
 
 // A matcher profile for some text. Word-based scoring works right away; the meaning vector
 // arrives a moment later (a few ms once the model is loaded) and triggers a fresh match pass.
@@ -71,6 +72,20 @@ app.use('/api/auth', createAuthRouter({
 app.use('/api/blocks', safety.createBlocksRouter());
 app.use('/api/admin', safety.createAdminRouter());
 app.get('/health', (_req, res) => res.json({ ok: true, online: users.size }));
+// Instrumentation (docs/test-plan.md section 4): only when METRICS_TOKEN is set, and only with that token.
+app.get('/metrics', (req, res) => {
+  const token = process.env.METRICS_TOKEN;
+  if (!token) return res.status(404).end();
+  const given = String(req.headers.authorization || '').replace(/^Bearer /, '');
+  const ok = given.length === token.length && crypto.timingSafeEqual(Buffer.from(given), Buffer.from(token));
+  if (!ok) return res.status(401).json({ error: 'Bad metrics token.' });
+  res.json(metrics.snapshot(gauges()));
+});
+function gauges() {
+  let searching = 0;
+  for (const u of users.values()) if (u.status === 'searching') searching++;
+  return { tabs: users.size, searching, rooms: rooms.size, backgroundSearches: background.active().length };
+}
 
 const server = http.createServer(app);
 const io = new Server(server, { maxHttpBufferSize: 1e6 });
@@ -255,6 +270,7 @@ function scheduleRecompute() {
   if (recomputeTimer) return;
   recomputeTimer = setTimeout(() => {
     recomputeTimer = null;
+    const done = metrics.startTimer('recompute.ms');
     let searching = 0;
     for (const u of users.values()) if (u.status === 'searching') searching++;
     const live = liveSearches();
@@ -265,6 +281,9 @@ function scheduleRecompute() {
     }
     pushFriendLists();
     pushInboxes(rowCache);
+    metrics.inc('recompute.passes');
+    metrics.inc('matches.pushed', searching);
+    done();
   }, 120);
 }
 
@@ -556,6 +575,7 @@ function addMember(room, u) {
 
 // 1:1 call from a request. The requester joins second so they make the WebRTC offer.
 function openRoom(requester, accepter) {
+  metrics.inc('rooms.opened.1to1');
   // The richest way of talking both allow; friends and connects without a shared mode default to video.
   const room = newRoom({ mode: prefs.callMode(requester, accepter) || 'video' });
   for (const [u, peer] of [[accepter, requester], [requester, accepter]]) {
@@ -741,6 +761,7 @@ function applyBlock(blockerAccountId, blockedAccountId) {
 function guardHandlers(socket) {
   const on = socket.on.bind(socket);
   socket.on = (event, handler) => on(event, (...args) => {
+    metrics.inc(`socket.in.${event}`);
     if (event !== 'disconnect') {
       if (typeof args[0] === 'function') args.unshift({});
       else if (args[0] === null || typeof args[0] !== 'object' || Array.isArray(args[0])) args[0] = {};
@@ -748,6 +769,8 @@ function guardHandlers(socket) {
     try {
       return handler(...args);
     } catch (err) {
+      metrics.inc('socket.handler_error');
+      metrics.inc(`socket.handler_error.${event}`);
       console.error(`[socket] "${event}" failed for account ${socket.data.account?.id}:`, err.message);
       const ack = args.find((a) => typeof a === 'function');
       ack?.({ error: 'Something went wrong. Please try again.' });
@@ -838,6 +861,7 @@ io.on('connection', (socket) => {
     u.outgoing.add(t.id);
     u.sentAt.set(t.id, Date.now());
     t.incoming.add(u.id);
+    metrics.inc('requests.sent');
     io.to(t.id).emit('incoming-request', { from: publicUser(u), score: Math.round(score(u.profile, t.profile) * 100) });
     ack?.({ ok: true });
     scheduleRecompute();
@@ -870,8 +894,10 @@ io.on('connection', (socket) => {
     }
     if (accept) {
       if (!available(u)) return ack?.({ error: 'You are not available.' });
+      metrics.inc('requests.accepted');
       openRoom(f, u);
     } else {
+      metrics.inc('requests.declined');
       io.to(f.id).emit('request-declined', { by: u.id, name: u.name, reason: 'declined' });
       scheduleRecompute();
     }
@@ -1260,6 +1286,7 @@ io.on('connection', (socket) => {
     const u = me();
     const t = u && resolveTarget(u, payload);
     if (!t) return ack?.({ error: 'That person is no longer available to report.' });
+    metrics.inc('reports.attempted');
     const result = safety.createReport({
       reporterId: u.accountId,
       reportedId: t.accountId,
@@ -1313,6 +1340,7 @@ io.on('connection', (socket) => {
     if (!Number.isInteger(cap) || cap < 2 || cap > MAX_ROOM_SIZE) return ack?.({ error: `Choose a size from 2 to ${MAX_ROOM_SIZE}.` });
     const mode = prefs.MODES.includes(requestedMode) && u.prefs.modes.includes(requestedMode) ? requestedMode : u.prefs.modes[0];
     const room = newRoom({ capacity: cap, open: true, hostId: u.id, activity: u.activity, mode });
+    metrics.inc('rooms.opened.group');
     addMember(room, u);
     broadcastRoom(room);
     ack?.({ ok: true });
@@ -1478,4 +1506,4 @@ if (require.main === module) {
   process.on('SIGINT', shutdown);
 }
 
-module.exports = { server, io, sendMeetingReminders };
+module.exports = { server, io, sendMeetingReminders, gauges };

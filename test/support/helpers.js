@@ -8,6 +8,7 @@ process.env.TURN_SECRET = 'test-turn-secret';
 process.env.TURN_HOST = '203.0.113.7';
 process.env.TURN_TLS_HOST = 'turn.example.com';
 process.env.ADMIN_EMAILS = 'admin@example.com';
+process.env.METRICS_TOKEN = 'test-metrics-token';
 const { io: Client } = require('socket.io-client');
 const { server, io } = require('../../server');
 const { outbox } = require('../../mail');
