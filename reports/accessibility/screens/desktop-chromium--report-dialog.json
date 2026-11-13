@@ -1,0 +1,6 @@
+{
+  "screen": "report dialog",
+  "project": "desktop-chromium",
+  "passes": 18,
+  "violations": []
+}

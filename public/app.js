@@ -44,7 +44,7 @@
   function hueFor(str) {
     let h = 0;
     for (const c of str) h = (h * 31 + c.charCodeAt(0)) % 360;
-    return `hsl(${h} 65% 55%)`;
+    return `hsl(${h} 50% 32%)`; // dark enough for white initials on every hue (WCAG AA, D8)
   }
 
   function paintAvatar(el, name, avatar) {
