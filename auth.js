@@ -93,9 +93,16 @@ setInterval(() => {
 
 function parseCookies(header = '') {
   const out = {};
-  for (const part of header.split(';')) {
+  for (const part of String(header).split(';')) {
     const i = part.indexOf('=');
-    if (i > 0) out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim());
+    if (i <= 0) continue;
+    // Any site on the parent domain can set cookies we receive; a malformed %-sequence in one of
+    // them must not throw (it used to crash the socket server: defect D1).
+    try {
+      out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim());
+    } catch {
+      /* skip the unreadable cookie */
+    }
   }
   return out;
 }

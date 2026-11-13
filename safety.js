@@ -72,7 +72,8 @@ function unsuspend(userId) {
 // Returns { ok, autoSuspended } or { error }.
 function createReport({ reporterId, reportedId, reason, details, context, activity, transcript }) {
   if (reporterId === reportedId) return { error: 'You can’t report yourself.' };
-  if (!REASONS[reason]) return { error: 'Choose a reason for the report.' };
+  // Own keys only: "constructor", "__proto__" etc. are not reasons, and nor is ['spam'] (defect D2).
+  if (typeof reason !== 'string' || !Object.hasOwn(REASONS, reason)) return { error: 'Choose a reason for the report.' };
   const text = typeof details === 'string' ? details.replace(/\s+/g, ' ').trim().slice(0, 500) : '';
   const now = Date.now();
 

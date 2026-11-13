@@ -734,7 +734,29 @@ function applyBlock(blockerAccountId, blockedAccountId) {
 
 // ---------- Socket handlers ----------
 
+// Every handler below is reachable by any signed-in client with any payload. Before this guard,
+// `socket.emit('send-request', null)` threw inside a handler and took the whole server down
+// (defect D4). Now each handler gets an object payload and runs inside an error boundary.
+function guardHandlers(socket) {
+  const on = socket.on.bind(socket);
+  socket.on = (event, handler) => on(event, (...args) => {
+    if (event !== 'disconnect') {
+      if (typeof args[0] === 'function') args.unshift({});
+      else if (args[0] === null || typeof args[0] !== 'object' || Array.isArray(args[0])) args[0] = {};
+    }
+    try {
+      return handler(...args);
+    } catch (err) {
+      console.error(`[socket] "${event}" failed for account ${socket.data.account?.id}:`, err.message);
+      const ack = args.find((a) => typeof a === 'function');
+      ack?.({ error: 'Something went wrong. Please try again.' });
+    }
+  });
+  return socket;
+}
+
 io.on('connection', (socket) => {
+  guardHandlers(socket);
   const me = () => users.get(socket.id);
   const account = socket.data.account;
   // Lets logout disconnect every tab signed in with that session.

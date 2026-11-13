@@ -57,8 +57,11 @@ function stem(word) {
 
 function tokenize(text) {
   return String(text || '')
+    .normalize('NFC')
     .toLowerCase()
-    .replace(/[^a-z0-9\s']/g, ' ')
+    // Letters and digits of any script (defect D3: "satranç" used to become "satran", and
+    // Japanese or Russian text vanished entirely).
+    .replace(/[^\p{L}\p{M}\p{N}\s']/gu, ' ')
     .split(/\s+/)
     .map((t) => t.replace(/'/g, ''))
     .filter((t) => t && !STOPWORDS.has(t));
