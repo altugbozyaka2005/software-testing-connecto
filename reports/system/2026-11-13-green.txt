@@ -1,0 +1,11 @@
+
+Running 6 tests using 2 workers
+
+  ✓  1 [mobile-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7] (2.0s)
+  ✓  2 [desktop-chromium] › test/system/journeys.spec.js:11:1 › ST-1: sign up, confirm email, find a match, request, accept, video call, chat, leave (5.2s)
+  ✓  3 [desktop-chromium] › test/system/journeys.spec.js:56:1 › ST-2: registration refuses under-18s and shows field errors in the form (1.0s)
+  ✓  4 [desktop-chromium] › test/system/journeys.spec.js:64:1 › ST-3: an unconfirmed account waits on "Check your inbox" and cannot reach matching (1.0s)
+  ✓  5 [desktop-chromium] › test/system/journeys.spec.js:74:1 › ST-4: sign out, wrong password, then sign back in (1.6s)
+  ✓  6 [desktop-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7] (1.8s)
+
+  6 passed (11.2s)
