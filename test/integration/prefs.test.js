@@ -1,8 +1,8 @@
 // Match preferences: mutual filters (gender, age, country, language) and call modes.
 const test = require('node:test');
 const assert = require('node:assert');
-const prefs = require('../prefs');
-const { start, stop, signedInSocket, once, call } = require('./helpers');
+const prefs = require('../../prefs');
+const { start, stop, signedInSocket, once, call } = require('../support/helpers');
 
 const side = (p, f) => ({ prefs: prefs.clean(p), facts: { gender: null, age: 30, country: null, languages: [], ...f } });
 

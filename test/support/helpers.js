@@ -9,8 +9,8 @@ process.env.TURN_HOST = '203.0.113.7';
 process.env.TURN_TLS_HOST = 'turn.example.com';
 process.env.ADMIN_EMAILS = 'admin@example.com';
 const { io: Client } = require('socket.io-client');
-const { server, io } = require('../server');
-const { outbox } = require('../mail');
+const { server, io } = require('../../server');
+const { outbox } = require('../../mail');
 
 // Newest email sent to `to`, plus the token from its link.
 function lastEmail(to, kind) {

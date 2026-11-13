@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { start, stop, request, newUser, signedInSocket, lastEmail, once, call, Client } = require('./helpers');
+const { start, stop, request, newUser, signedInSocket, lastEmail, once, call, Client } = require('../support/helpers');
 
 let base;
 test.before(async () => { base = await start(); });
@@ -34,7 +34,7 @@ test('new accounts must confirm their email before matching', async () => {
 });
 
 test('signing in to an unconfirmed account sends a fresh link only if the last one is old', async () => {
-  const db = require('../db');
+  const db = require('../../db');
   const u = newUser();
   await request(base, 'POST', '/api/auth/register', u);
   const first = lastEmail(u.email, 'verify').token;

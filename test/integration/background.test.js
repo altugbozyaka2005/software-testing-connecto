@@ -1,9 +1,9 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { start, stop, signedInSocket, lastEmail, once, call, matchUp, Client } = require('./helpers');
-const db = require('../db');
-const { sendMeetingReminders } = require('../server');
-const { outbox } = require('../mail');
+const { start, stop, signedInSocket, lastEmail, once, call, matchUp, Client } = require('../support/helpers');
+const db = require('../../db');
+const { sendMeetingReminders } = require('../../server');
+const { outbox } = require('../../mail');
 
 let base;
 test.before(async () => { base = await start(); });

@@ -1,7 +1,7 @@
 // The matches screen's two sides: requests you sent, and requests sent to you.
 const test = require('node:test');
 const assert = require('node:assert');
-const { start, stop, signedInSocket, once, call } = require('./helpers');
+const { start, stop, signedInSocket, once, call } = require('../support/helpers');
 
 let base;
 test.before(async () => { base = await start(); });

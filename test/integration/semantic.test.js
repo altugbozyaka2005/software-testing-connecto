@@ -1,8 +1,8 @@
 // Matching by meaning (embeddings.js). Downloads the model into ./models on the first run.
 const test = require('node:test');
 const assert = require('node:assert');
-const { analyze, score, lexical } = require('../matcher');
-const embeddings = require('../embeddings');
+const { analyze, score, lexical } = require('../../matcher');
+const embeddings = require('../../embeddings');
 
 async function scored(a, b) {
   const [pa, pb] = [analyze(a), analyze(b)];

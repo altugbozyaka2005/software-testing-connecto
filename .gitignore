@@ -3,3 +3,9 @@ data/
 .DS_Store
 .env
 models/
+coverage/
+.stryker-tmp/
+test-results/
+playwright-report/
+reports/coverage/lcov-report/
+reports/coverage/tmp/

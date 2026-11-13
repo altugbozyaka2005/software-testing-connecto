@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { analyze, score } = require('../matcher');
+const { analyze, score } = require('../../matcher');
 
 const s = (a, b) => score(analyze(a), analyze(b));
 

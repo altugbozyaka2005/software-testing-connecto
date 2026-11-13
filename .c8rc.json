@@ -1,0 +1,12 @@
+{
+  "all": true,
+  "include": ["*.js"],
+  "exclude": ["stryker.config.*", "playwright.config.*", "test/**", "public/**", "scripts/**"],
+  "reporter": ["text", "text-summary", "html", "json-summary", "lcov"],
+  "report-dir": "reports/coverage",
+  "check-coverage": true,
+  "lines": 90,
+  "statements": 90,
+  "functions": 90,
+  "branches": 80
+}
