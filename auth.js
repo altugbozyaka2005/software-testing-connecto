@@ -192,7 +192,8 @@ function validateRegistration(body = {}) {
   const lastName = str(body.lastName);
   const email = str(body.email).toLowerCase();
   const password = typeof body.password === 'string' ? body.password : '';
-  const gender = body.gender ? String(body.gender) : null;
+  // Not String(body.gender): a JSON object like {"toString": {}} makes String() throw (defect D6).
+  const gender = body.gender === undefined || body.gender === null || body.gender === '' ? null : body.gender;
 
   if (!firstName) errors.firstName = 'Enter your first name.';
   else if (firstName.length > 50 || !NAME_RE.test(firstName)) errors.firstName = 'Use letters only (max 50).';
@@ -493,4 +494,6 @@ function socketAuth(socket, next) {
 module.exports = {
   createAuthRouter, socketAuth, sessionFromCookieHeader, jsonOnly, isAdmin, adminEmails,
   displayName, validAvatar, validateRegistration, ageOn, profileExtras,
+  // Exported for unit tests (test/unit/auth.validation.test.js).
+  validateProfile, passwordProblem, parseDob, parseCookies, MAX_AVATAR_BYTES,
 };

@@ -94,7 +94,8 @@ const users = new Map();
 //   ready: Set<socketId> (media ready), links: Set<'a|b'> (peer connections set up), createdAt }
 const rooms = new Map();
 
-const clean = (s, max) => String(s ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
+// Text from clients: strings (or numbers) only; objects are dropped rather than String()-ed (D6).
+const clean = (s, max) => (typeof s === 'string' || typeof s === 'number' ? String(s) : '').replace(/\s+/g, ' ').trim().slice(0, max);
 
 function publicUser(u) {
   return {
