@@ -1,8 +1,23 @@
 {
   "all": true,
-  "include": ["*.js"],
-  "exclude": ["stryker.config.*", "playwright.config.*", "test/**", "public/**", "scripts/**"],
-  "reporter": ["text", "text-summary", "html", "json-summary", "lcov"],
+  "include": [
+    "*.js"
+  ],
+  "exclude": [
+    "stryker.config.*",
+    "playwright.config.*",
+    "test/**",
+    "public/**",
+    "scripts/**"
+  ],
+  "reporter": [
+    "text",
+    "text-summary",
+    "html",
+    "json-summary",
+    "lcov",
+    "cobertura"
+  ],
   "report-dir": "reports/coverage",
   "check-coverage": true,
   "lines": 90,

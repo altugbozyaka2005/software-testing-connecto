@@ -64,3 +64,18 @@ test('D6: poisoned objects in socket payloads are refused with an error ack', as
     assert.ok(ack.error, JSON.stringify(activity));
   }
 });
+
+// D10, found by code review (docs/code-review.md R1): in-call chat had no rate limit, unlike DMs, and the
+// report transcript keeps only the last 100 messages, so flooding could also push abuse out of the evidence.
+test('D10: in-call chat is limited to 15 messages per 10 seconds per person', async (t) => {
+  const { matchUp } = require('../support/helpers');
+  const a = await signedInSocket(base, { firstName: 'Flo' });
+  const b = await signedInSocket(base, { firstName: 'Gil' });
+  t.after(() => [a, b].forEach((x) => x.sock.close()));
+  await matchUp(a.sock, b.sock, 'flood test origami folding');
+  let received = 0;
+  b.sock.on('chat', () => received++);
+  for (let i = 0; i < 40; i++) a.sock.emit('chat', { text: `spam ${i}` });
+  await new Promise((r) => setTimeout(r, 400));
+  assert.strictEqual(received, 15);
+});

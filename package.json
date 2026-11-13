@@ -16,7 +16,8 @@
     "test:system": "playwright test",
     "test:perf": "node test/performance/match-latency.js",
     "test:ab": "node test/ab/matcher-ab.js",
-    "lint": "node --check server.js auth.js db.js matcher.js prefs.js safety.js chat.js friends.js background.js mail.js turn.js embeddings.js"
+    "lint": "node --check server.js auth.js db.js matcher.js prefs.js safety.js chat.js friends.js background.js mail.js turn.js embeddings.js",
+    "test:ci": "c8 node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=reports/junit.xml \"test/unit/**/*.test.js\" \"test/property/**/*.test.js\" \"test/integration/**/*.test.js\""
   },
   "license": "MIT",
   "dependencies": {

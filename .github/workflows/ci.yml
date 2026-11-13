@@ -1,0 +1,120 @@
+# CI pipeline (LO5). Design and evidence: docs/ci.md. Mirrors .gitlab-ci.yml (University GitLab).
+#   1. static   - syntax check of every server module (fast fail)
+#   2. test     - unit + property + integration tests with coverage thresholds (c8, .c8rc.json)
+#   3. system   - browser system + acceptance tests (Playwright, desktop + phone), accessibility audit
+#   4. mutation - Stryker on the domain modules (push to main and nightly); breaks below 60%
+#   5. perf     - load/stress test and offline A/B of the matcher (weekly and on demand)
+name: CI
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '30 2 * * *' # nightly: mutation testing
+  workflow_dispatch:
+    inputs:
+      perf:
+        description: 'Also run the performance and A/B jobs'
+        type: boolean
+        default: false
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    needs: static
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci
+      # The multilingual model (~280 MB) for test/integration/semantic.test.js, cached between runs.
+      - uses: actions/cache@v4
+        with:
+          path: models
+          key: model-paraphrase-multilingual-mpnet-base-v2-q8
+      - run: test -d models/Xenova || node scripts/fetch-model.js
+      - name: Unit, property and integration tests with coverage thresholds
+        run: npm run test:ci
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-and-junit
+          path: |
+            reports/coverage
+            reports/junit.xml
+
+  system:
+    needs: test
+    runs-on: ubuntu-latest
+    env: { CI: '1' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: System, acceptance, accessibility and usability tests (desktop + phone)
+        run: npx playwright test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            reports/system
+            reports/accessibility
+            reports/usability
+            test-results
+
+  mutation:
+    needs: test
+    if: github.event_name == 'schedule' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci
+      - name: Mutation testing (fails below thresholds.break in stryker.config.json)
+        run: npx stryker run --concurrency 4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: mutation-report, path: reports/mutation }
+
+  perf:
+    needs: test
+    if: github.event_name == 'schedule' || inputs.perf
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '${{ env.NODE_VERSION }}', cache: npm }
+      - run: npm ci
+      - uses: actions/cache@v4
+        with: { path: models, key: model-paraphrase-multilingual-mpnet-base-v2-q8 }
+      - run: test -d models/Xenova || node scripts/fetch-model.js
+      - run: LEVELS=10,50,100,200 TRIALS=30 npm run test:perf
+      - run: npm run test:ab
+      - uses: actions/upload-artifact@v4
+        with:
+          name: performance-and-ab
+          path: |
+            reports/performance
+            reports/ab

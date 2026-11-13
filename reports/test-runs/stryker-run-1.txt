@@ -1,0 +1,33 @@
+[32m01:20:44 (81892) INFO ProjectReader[39m Found 8 of 85 file(s) to be mutated.
+[32m01:20:44 (81892) INFO Instrumenter[39m Instrumented 8 source file(s) with 2004 mutant(s)
+[32m01:20:44 (81892) INFO ConcurrencyTokenProvider[39m Creating 6 test runner process(es).
+[32m01:20:44 (81892) INFO BroadcastReporter[39m Detected that current console does not support the "progress" reporter, downgrading to "progress-append-only" reporter
+[32m01:20:44 (81892) INFO DryRunExecutor[39m Starting initial test run (tap test runner with "perTest" coverage analysis). This may take a while.
+[32m01:20:54 (81892) INFO DryRunExecutor[39m Initial test run succeeded. Ran 9 tests in 9 seconds (net 8630.645917 ms, overhead 774.3540830000002 ms).
+Mutation testing 0% (elapsed: <1m, remaining: n/a) 372/2004 tested (0 survived, 0 timed out)
+Mutation testing 0% (elapsed: <1m, remaining: ~45m) 379/2004 tested (5 survived, 0 timed out)
+Mutation testing 1% (elapsed: <1m, remaining: ~39m) 384/2004 tested (5 survived, 0 timed out)
+Mutation testing 2% (elapsed: <1m, remaining: ~29m) 393/2004 tested (11 survived, 0 timed out)
+Mutation testing 3% (elapsed: <1m, remaining: ~25m) 403/2004 tested (18 survived, 0 timed out)
+Mutation testing 3% (elapsed: ~1m, remaining: ~25m) 409/2004 tested (23 survived, 0 timed out)
+Mutation testing 4% (elapsed: ~1m, remaining: ~25m) 447/2004 tested (28 survived, 0 timed out)
+Mutation testing 5% (elapsed: ~1m, remaining: ~25m) 453/2004 tested (28 survived, 0 timed out)
+Mutation testing 5% (elapsed: ~1m, remaining: ~25m) 459/2004 tested (28 survived, 0 timed out)
+Mutation testing 5% (elapsed: ~1m, remaining: ~26m) 462/2004 tested (29 survived, 0 timed out)
+Mutation testing 6% (elapsed: ~1m, remaining: ~26m) 467/2004 tested (29 survived, 0 timed out)
+Mutation testing 6% (elapsed: ~2m, remaining: ~27m) 471/2004 tested (29 survived, 0 timed out)
+Mutation testing 7% (elapsed: ~2m, remaining: ~26m) 477/2004 tested (29 survived, 0 timed out)
+Mutation testing 8% (elapsed: ~2m, remaining: ~26m) 483/2004 tested (29 survived, 0 timed out)
+Mutation testing 8% (elapsed: ~2m, remaining: ~26m) 489/2004 tested (30 survived, 0 timed out)
+Mutation testing 9% (elapsed: ~2m, remaining: ~25m) 495/2004 tested (33 survived, 0 timed out)
+Mutation testing 10% (elapsed: ~2m, remaining: ~25m) 501/2004 tested (34 survived, 0 timed out)
+Mutation testing 10% (elapsed: ~3m, remaining: ~25m) 507/2004 tested (34 survived, 0 timed out)
+Mutation testing 11% (elapsed: ~3m, remaining: ~24m) 513/2004 tested (34 survived, 0 timed out)
+Mutation testing 11% (elapsed: ~3m, remaining: ~24m) 518/2004 tested (35 survived, 0 timed out)
+Mutation testing 12% (elapsed: ~3m, remaining: ~25m) 522/2004 tested (35 survived, 0 timed out)
+Mutation testing 12% (elapsed: ~3m, remaining: ~25m) 527/2004 tested (37 survived, 0 timed out)
+Mutation testing 13% (elapsed: ~3m, remaining: ~25m) 531/2004 tested (37 survived, 0 timed out)
+Mutation testing 13% (elapsed: ~4m, remaining: ~25m) 538/2004 tested (37 survived, 0 timed out)
+Mutation testing 14% (elapsed: ~4m, remaining: ~24m) 544/2004 tested (37 survived, 0 timed out)
+Mutation testing 15% (elapsed: ~4m, remaining: ~24m) 550/2004 tested (37 survived, 0 timed out)
+Mutation testing 15% (elapsed: ~4m, remaining: ~24m) 556/2004 tested (37 survived, 0 timed out)

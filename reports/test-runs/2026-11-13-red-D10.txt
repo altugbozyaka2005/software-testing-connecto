@@ -1,0 +1,33 @@
+✔ D1: HTTP routes treat a malformed cookie as "not signed in" (401), not a server error (23.925375ms)
+✔ D1: a socket handshake with a malformed cookie is refused and the server keeps serving others (59.868625ms)
+✔ a valid session cookie next to unrelated cookies still signs you in (36.692208ms)
+✔ D6: object-valued fields in the registration body are rejected with 400, not a 500 (1.971458ms)
+✔ D6: poisoned objects in socket payloads are refused with an error ack (36.917667ms)
+✖ D10: in-call chat is limited to 15 messages per 10 seconds per person (478.697ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 963.855916
+
+✖ failing tests:
+
+test at test/integration/robustness.test.js:70:1
+✖ D10: in-call chat is limited to 15 messages per 10 seconds per person (478.697ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  40 !== 15
+  
+      at TestContext.<anonymous> (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/integration/robustness.test.js:80:10)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 15,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,66 @@
+# Same pipeline for the University GitLab (git.ecdf.ed.ac.uk); see docs/ci.md.
+# GitHub Actions (.github/workflows/ci.yml) is the one that runs for the GitHub copy of this repo.
+default:
+  image: node:24
+  cache:
+    key: { files: [package-lock.json] }
+    paths: [.npm/]
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+
+stages: [static, test, system, mutation, perf]
+
+lint:
+  stage: static
+  script: npm run lint
+
+test:
+  stage: test
+  cache:
+    - key: { files: [package-lock.json] }
+      paths: [.npm/]
+    - key: model-paraphrase-multilingual-mpnet-base-v2-q8
+      paths: [models/]
+  script:
+    - test -d models/Xenova || node scripts/fetch-model.js
+    - npm run test:ci
+  coverage: '/^Lines\s*:\s*([\d.]+)%/'
+  artifacts:
+    when: always
+    reports:
+      junit: reports/junit.xml
+      coverage_report: { coverage_format: cobertura, path: reports/coverage/cobertura-coverage.xml }
+    paths: [reports/coverage]
+
+system:
+  stage: system
+  image: mcr.microsoft.com/playwright:v1.65.0-noble
+  variables: { CI: '1' }
+  script: npx playwright test
+  artifacts:
+    when: always
+    paths: [playwright-report, reports/system, reports/accessibility, reports/usability, test-results]
+
+mutation:
+  stage: mutation
+  timeout: 45m
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script: npx stryker run --concurrency 4
+  artifacts:
+    when: always
+    paths: [reports/mutation]
+
+perf:
+  stage: perf
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - when: manual
+      allow_failure: true
+  script:
+    - test -d models/Xenova || node scripts/fetch-model.js
+    - LEVELS=10,50,100,200 TRIALS=30 npm run test:perf
+    - npm run test:ab
+  artifacts:
+    paths: [reports/performance, reports/ab]
