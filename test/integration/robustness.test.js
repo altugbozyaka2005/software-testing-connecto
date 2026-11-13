@@ -42,3 +42,25 @@ test('a valid session cookie next to unrelated cookies still signs you in', asyn
   const r = await request(base, 'GET', '/api/auth/me', null, `theme=dark; ${cookie}; _ga=GA1.2.3`);
   assert.strictEqual(r.status, 200);
 });
+
+// Found by property-based testing (test/property/invariants.test.js P-AUTH-1): String() on a JSON
+// object whose "toString" is not a function throws TypeError. See docs/test-log.md D6.
+const POISON = [{ toString: {} }, { valueOf: {}, toString: {} }, { toString: 'x' }];
+
+test('D6: object-valued fields in the registration body are rejected with 400, not a 500', async () => {
+  const { newUser } = require('../support/helpers');
+  for (const gender of POISON) {
+    const r = await request(base, 'POST', '/api/auth/register', newUser({ gender }));
+    assert.strictEqual(r.status, 400, JSON.stringify(gender));
+    assert.ok(r.body.fields.gender);
+  }
+});
+
+test('D6: poisoned objects in socket payloads are refused with an error ack', async (t) => {
+  const { sock } = await signedInSocket(base, { firstName: 'Poison' });
+  t.after(() => sock.close());
+  for (const activity of POISON) {
+    const ack = await new Promise((r) => sock.emit('set-activity', { activity }, r));
+    assert.ok(ack.error, JSON.stringify(activity));
+  }
+});

@@ -1,0 +1,178 @@
+✔ D1: HTTP routes treat a malformed cookie as "not signed in" (401), not a server error (23.933625ms)
+✔ D1: a socket handshake with a malformed cookie is refused and the server keeps serving others (52.572666ms)
+✔ a valid session cookie next to unrelated cookies still signs you in (31.984666ms)
+TypeError: Cannot convert object to primitive value
+    at String (<anonymous>)
+    at validateRegistration (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:195:32)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:346:31
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:330:5
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/index.js:435:11)
+✖ D6: object-valued fields in the registration body are rejected with 400, not a 500 (1.474042ms)
+[socket] "set-activity" failed for account 3: Cannot convert object to primitive value
+[socket] "set-activity" failed for account 3: Cannot convert object to primitive value
+[socket] "set-activity" failed for account 3: Cannot convert object to primitive value
+✔ D6: poisoned objects in socket payloads are refused with an error ack (31.825667ms)
+✔ P-MAT-1: scores are always within [0, 1] (317.367792ms)
+✔ P-MAT-2: scoring is symmetric (526.541291ms)
+✔ P-MAT-3: any text with at least one meaningful word scores >= 0.95 against itself (304.929958ms)
+✔ P-MAT-4: case and surrounding punctuation never change the score (512.831417ms)
+✔ P-MAT-5: tokenize is idempotent and stem never lengthens a word (7.827917ms)
+✔ P-PREF-1: clean is idempotent and only ever returns allowed values (10.353166ms)
+✔ P-PREF-2: compatibility is symmetric, and nobody with no filters is ever excluded by filters (10.199208ms)
+✔ P-PREF-3: adding a filter can only shrink the set of people you fit with (monotonic) (5.163958ms)
+✖ P-AUTH-1: validation never throws, and anything it accepts satisfies every rule (SR1, FR1) (21.04075ms)
+✔ P-AUTH-2: profile validation never throws on arbitrary input (76.166833ms)
+✔ P-AUTH-3: cookie parsing never throws on any header string (D1) (224.38925ms)
+[socket] "connect-propose" failed for account 1: Cannot convert object to primitive value
+✔ SR4 / D4: no payload sent to any socket event crashes the server (135.661125ms)
+✔ SR4: the server answers acks with an error, not silence, when a handler fails (31.223667ms)
+TypeError: Cannot convert object to primitive value
+    at String (<anonymous>)
+    at validateRegistration (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:195:32)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:346:31
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:330:5
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/index.js:435:11)
+TypeError: Cannot convert object to primitive value
+    at String (<anonymous>)
+    at validateRegistration (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:195:32)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:346:31
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:330:5
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/index.js:435:11)
+TypeError: Cannot convert object to primitive value
+    at String (<anonymous>)
+    at validateRegistration (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:195:32)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:346:31
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:330:5
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/index.js:435:11)
+TypeError: Cannot convert object to primitive value
+    at String (<anonymous>)
+    at validateRegistration (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:195:32)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:346:31
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:330:5
+    at Layer.handleRequest (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/router/index.js:435:11)
+✖ SR4: arbitrary JSON bodies never produce a 5xx from the HTTP API (535.602792ms)
+✔ the fuzzed event list matches the handlers registered in server.js (0.580833ms)
+✔ a fully valid registration has no errors and is normalised (2.546291ms)
+✔ BV-AUTH-1: names are 1..50 characters (0.173209ms)
+✔ names: letters of any script plus apostrophe, hyphen, dot and space; must start with a letter (1.030917ms)
+✔ BV-AUTH-2: passwords are 8..128 characters with a letter and a digit (0.092959ms)
+✔ BV-AUTH-3: email needs a 2+ letter TLD and at most 254 characters (0.087875ms)
+✔ BV-AUTH-4: you must be 18 today (not tomorrow) and at most 120 (0.08825ms)
+✔ dates must be real calendar dates in YYYY-MM-DD (0.057959ms)
+✔ age on a birthday boundary, including a 29 February birthday (0.061291ms)
+✖ gender is optional but must come from the list; terms must be exactly true (0.130583ms)
+✔ BV-AUTH-5: avatars are png/jpeg/webp/gif data URLs of at most 300 KB (0.338417ms)
+✔ BV-AUTH-6: profile limits: bio 200, interests 5 (deduped, #-stripped, 24 chars), languages 5 (0.245958ms)
+✔ profile text is cleaned of control characters and cut to length; unknown values refused (19.675875ms)
+✔ cookies: every cookie parsed, malformed values skipped (D1) (0.149792ms)
+✔ strangers see first name and last initial only (0.041917ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 30
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2211.601542
+
+✖ failing tests:
+
+test at test/integration/robustness.test.js:50:1
+✖ D6: object-valued fields in the registration body are rejected with 400, not a 500 (1.474042ms)
+  AssertionError [ERR_ASSERTION]: {"toString":{}}
+  
+  500 !== 400
+  
+      at TestContext.<anonymous> (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/integration/robustness.test.js:54:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 500,
+    expected: 400,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/property/invariants.test.js:109:1
+✖ P-AUTH-1: validation never throws, and anything it accepts satisfies every rule (SR1, FR1) (21.04075ms)
+  Error: Property failed after 612 tests
+  { seed: -1952966126, path: "611:0:0:0:0:0:2:77:77:77", endOnFailure: true }
+  Counterexample: [{"gender":{"toString":{}}}]
+  Shrunk 9 time(s)
+  Got TypeError: Cannot convert object to primitive value
+      at String (<anonymous>)
+      at Object.validateRegistration (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:195:32)
+      at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/property/invariants.test.js:112:36
+      at Property.predicate (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/property/Property.js:17:86)
+      at Property.run (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/property/Property.generic.js:49:33)
+      at runIt (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/Runner.js:22:30)
+      at check (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/Runner.js:66:11)
+      at Object.assert (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/Runner.js:69:17)
+      at TestContext.<anonymous> (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/property/invariants.test.js:111:6)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+  
+  Hint: Enable verbose mode in order to have the list of all failing values encountered during the run
+      at buildError (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/utils/RunDetailsFormatter.js:132:15)
+      at throwIfFailed (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/utils/RunDetailsFormatter.js:144:11)
+      at reportRunDetails (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/utils/RunDetailsFormatter.js:157:16)
+      at Object.assert (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/Runner.js:73:52)
+      at TestContext.<anonymous> (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/property/invariants.test.js:111:6)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+
+test at test/property/socket-fuzz.test.js:74:1
+✖ SR4: arbitrary JSON bodies never produce a 5xx from the HTTP API (535.602792ms)
+  Error: Property failed after 119 tests
+  { seed: -1389008951, path: "118:4:3:2", endOnFailure: true }
+  Counterexample: [["POST","/api/auth/register"],{"gender":{"toString":{}}},false]
+  Shrunk 3 time(s)
+  Got error: Property failed by returning false
+  
+  Hint: Enable verbose mode in order to have the list of all failing values encountered during the run
+      at buildError (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/utils/RunDetailsFormatter.js:132:15)
+      at asyncThrowIfFailed (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/node_modules/fast-check/lib/check/runner/utils/RunDetailsFormatter.js:149:11)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+test at test/unit/auth.validation.test.js:88:1
+✖ gender is optional but must come from the list; terms must be exactly true (0.130583ms)
+  TypeError [Error]: Cannot convert object to primitive value
+      at String (<anonymous>)
+      at validateRegistration (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/auth.js:195:32)
+      at errorsFor (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/unit/auth.validation.test.js:22:26)
+      at TestContext.<anonymous> (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/unit/auth.validation.test.js:91:13)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)

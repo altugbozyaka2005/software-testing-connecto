@@ -32,7 +32,9 @@ test('SR4 / D4: no payload sent to any socket event crashes the server', { timeo
 
   // Values that refer to real things, mixed with junk of every JSON type.
   const realish = fc.constantFrom(partner.sock.id, fuzzer.sock.id, partner.user.id, fuzzer.user.id, 'spam', 24, 2, true);
-  const value = fc.oneof(realish, fc.jsonValue({ maxDepth: 2 }));
+  // Objects that break String()/template literals (added after D6 showed the generator missed them).
+  const poison = fc.constantFrom({ toString: {} }, { valueOf: {}, toString: {} }, { toString: 'x' }, { length: -1 });
+  const value = fc.oneof(realish, poison, fc.jsonValue({ maxDepth: 2 }));
   const payload = fc.oneof(
     fc.constant(null),
     fc.jsonValue({ maxDepth: 2 }),
@@ -80,7 +82,7 @@ test('SR4: arbitrary JSON bodies never produce a 5xx from the HTTP API', { timeo
   const body = fc.oneof(
     fc.dictionary(fc.constantFrom('email', 'password', 'firstName', 'lastName', 'dateOfBirth', 'gender', 'avatar',
       'acceptTerms', 'token', 'bio', 'city', 'country', 'languages', 'timezone', 'interests', 'action', 'note'),
-    fc.jsonValue({ maxDepth: 2 }), { maxKeys: 6 }),
+    fc.oneof(fc.jsonValue({ maxDepth: 2 }), fc.constantFrom({ toString: {} }, { valueOf: {}, toString: {} })), { maxKeys: 6 }),
     fc.array(fc.jsonValue({ maxDepth: 1 }), { maxLength: 3 }),
   );
   await fc.assert(
