@@ -29,19 +29,19 @@
       "keystrokes": 74,
       "klmOperators": "MPBMPBHKKKMPBHKKKKMPBHKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMPBHKKKKKKKKKKKMPBHKKKKKKKKHMPBMPBMPBHKKKKKKKKKKKKKKKKKMK",
       "klmSeconds": 48.7,
-      "systemResponseMs": 875,
+      "systemResponseMs": 839,
       "steps": [
         {
           "kind": "click",
           "detail": "Create account tab",
           "operators": "MPB",
-          "ms": 145
+          "ms": 261
         },
         {
           "kind": "type",
           "detail": "first name",
           "operators": "MPBHKKK",
-          "ms": 263
+          "ms": 251
         },
         {
           "kind": "type",
@@ -53,7 +53,7 @@
           "kind": "type",
           "detail": "email",
           "operators": "MPBHKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK",
-          "ms": 34
+          "ms": 33
         },
         {
           "kind": "type",
@@ -65,25 +65,25 @@
           "kind": "type",
           "detail": "date of birth (typed as digits)",
           "operators": "MPBHKKKKKKKK",
-          "ms": 31
+          "ms": 32
         },
         {
           "kind": "click",
           "detail": "accept guidelines",
           "operators": "HMPB",
-          "ms": 40
+          "ms": 24
         },
         {
           "kind": "click",
           "detail": "Create account",
           "operators": "MPB",
-          "ms": 34
+          "ms": 35
         },
         {
           "kind": "type",
           "detail": "activity",
           "operators": "MPBHKKKKKKKKKKKKKKKKK",
-          "ms": 258
+          "ms": 133
         },
         {
           "kind": "key",
@@ -101,13 +101,43 @@
       "keystrokes": 0,
       "klmOperators": "MPB",
       "klmSeconds": 2.7,
-      "systemResponseMs": 43,
+      "systemResponseMs": 32,
       "steps": [
         {
           "kind": "click",
           "detail": "match card",
           "operators": "MPB",
-          "ms": 43
+          "ms": 32
+        }
+      ]
+    },
+    {
+      "device": "mobile-chromium",
+      "task": "T3 report and block",
+      "clicks": 3,
+      "fields": 0,
+      "keystrokes": 0,
+      "klmOperators": "MPBMPBMPB",
+      "klmSeconds": 8,
+      "systemResponseMs": 1694,
+      "steps": [
+        {
+          "kind": "click",
+          "detail": "report button",
+          "operators": "MPB",
+          "ms": 1614
+        },
+        {
+          "kind": "click",
+          "detail": "reason",
+          "operators": "MPB",
+          "ms": 45
+        },
+        {
+          "kind": "click",
+          "detail": "send",
+          "operators": "MPB",
+          "ms": 35
         }
       ]
     }

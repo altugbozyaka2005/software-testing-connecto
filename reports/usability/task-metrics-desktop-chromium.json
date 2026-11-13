@@ -1,0 +1,145 @@
+{
+  "klm": {
+    "K": 0.28,
+    "P": 1.1,
+    "B": 0.2,
+    "H": 0.4,
+    "M": 1.35
+  },
+  "targets": {
+    "T1 sign up and see matches": {
+      "clicks": 6,
+      "klmS": 60
+    },
+    "T2 match to call": {
+      "clicks": 1,
+      "klmS": 5
+    },
+    "T3 report and block": {
+      "clicks": 3,
+      "klmS": 10
+    }
+  },
+  "tasks": [
+    {
+      "device": "desktop-chromium",
+      "task": "T1 sign up and see matches",
+      "clicks": 3,
+      "fields": 6,
+      "keystrokes": 74,
+      "klmOperators": "MPBMPBHKKKMPBHKKKKMPBHKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMPBHKKKKKKKKKKKMPBHKKKKKKKKHMPBMPBMPBHKKKKKKKKKKKKKKKKKMK",
+      "klmSeconds": 48.7,
+      "systemResponseMs": 1142,
+      "steps": [
+        {
+          "kind": "click",
+          "detail": "Create account tab",
+          "operators": "MPB",
+          "ms": 271
+        },
+        {
+          "kind": "type",
+          "detail": "first name",
+          "operators": "MPBHKKK",
+          "ms": 266
+        },
+        {
+          "kind": "type",
+          "detail": "last name",
+          "operators": "MPBHKKKK",
+          "ms": 45
+        },
+        {
+          "kind": "type",
+          "detail": "email",
+          "operators": "MPBHKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK",
+          "ms": 33
+        },
+        {
+          "kind": "type",
+          "detail": "password",
+          "operators": "MPBHKKKKKKKKKKK",
+          "ms": 35
+        },
+        {
+          "kind": "type",
+          "detail": "date of birth (typed as digits)",
+          "operators": "MPBHKKKKKKKK",
+          "ms": 34
+        },
+        {
+          "kind": "click",
+          "detail": "accept guidelines",
+          "operators": "HMPB",
+          "ms": 34
+        },
+        {
+          "kind": "click",
+          "detail": "Create account",
+          "operators": "MPB",
+          "ms": 32
+        },
+        {
+          "kind": "type",
+          "detail": "activity",
+          "operators": "MPBHKKKKKKKKKKKKKKKKK",
+          "ms": 389
+        },
+        {
+          "kind": "key",
+          "detail": "submit activity",
+          "operators": "MK",
+          "ms": 3
+        }
+      ]
+    },
+    {
+      "device": "desktop-chromium",
+      "task": "T2 match to call",
+      "clicks": 1,
+      "fields": 0,
+      "keystrokes": 0,
+      "klmOperators": "MPB",
+      "klmSeconds": 2.7,
+      "systemResponseMs": 41,
+      "steps": [
+        {
+          "kind": "click",
+          "detail": "match card",
+          "operators": "MPB",
+          "ms": 41
+        }
+      ]
+    },
+    {
+      "device": "desktop-chromium",
+      "task": "T3 report and block",
+      "clicks": 3,
+      "fields": 0,
+      "keystrokes": 0,
+      "klmOperators": "MPBMPBMPB",
+      "klmSeconds": 8,
+      "systemResponseMs": 353,
+      "steps": [
+        {
+          "kind": "click",
+          "detail": "report button",
+          "operators": "MPB",
+          "ms": 63
+        },
+        {
+          "kind": "click",
+          "detail": "reason",
+          "operators": "MPB",
+          "ms": 241
+        },
+        {
+          "kind": "click",
+          "detail": "send",
+          "operators": "MPB",
+          "ms": 49
+        }
+      ]
+    }
+  ]
+}

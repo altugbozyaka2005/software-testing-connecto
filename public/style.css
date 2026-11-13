@@ -619,6 +619,7 @@ a.menu-item[hidden] { display: none; }
   .me-pill .me-name { display: none; }
   .me-pill { padding: 4px 8px 4px 4px; gap: 4px; }
   .room-topbar { flex-wrap: wrap; }
+  .room-actions { flex-wrap: wrap; max-width: 100%; } /* D9: the row made the page wider than the phone */
   .me-pill span { max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {

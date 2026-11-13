@@ -1,139 +1,21 @@
 
-Running 15 tests using 2 workers
+Running 17 tests using 2 workers
 
-[1/15] [desktop-chromium] › test/acceptance/stories.spec.js:21:1 › US-1: Given two people studying the same thing, when they search, then each sees the other and they are in a call after one click each
-[2/15] [desktop-chromium] › test/acceptance/accessibility.spec.js:32:1 › A11Y-1: sign-in, create-account and check-your-inbox screens
-[3/15] [desktop-chromium] › test/acceptance/accessibility.spec.js:43:1 › A11Y-2: activity prompt, matches with a card, incoming panel, call and report dialog
-[4/15] [desktop-chromium] › test/acceptance/stories.spec.js:36:1 › US-2: Given a stranger sees me in matches, requests or a call, then they never see my surname, email or date of birth
-[5/15] [desktop-chromium] › test/acceptance/stories.spec.js:56:1 › US-3: Given I am in a call with someone abusive, when I report and block them, then the call ends and we never see each other again
-[6/15] [desktop-chromium] › test/acceptance/accessibility.spec.js:67:1 › A11Y-3: everything on the sign-in screen can be reached and used with the keyboard alone
-[7/15] [desktop-chromium] › test/acceptance/usability.spec.js:76:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots
-[8/15] [desktop-chromium] › test/acceptance/stories.spec.js:82:1 › US-4: Given two people doing unrelated things, then they are not offered to each other
-[9/15] [desktop-chromium] › test/system/journeys.spec.js:11:1 › ST-1: sign up, confirm email, find a match, request, accept, video call, chat, leave
-[10/15] [mobile-chromium] › test/acceptance/usability.spec.js:76:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots
-[11/15] [desktop-chromium] › test/system/journeys.spec.js:56:1 › ST-2: registration refuses under-18s and shows field errors in the form
-[12/15] [desktop-chromium] › test/system/journeys.spec.js:64:1 › ST-3: an unconfirmed account waits on "Check your inbox" and cannot reach matching
-[13/15] [desktop-chromium] › test/system/journeys.spec.js:74:1 › ST-4: sign out, wrong password, then sign back in
-[14/15] [desktop-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7]
-[15/15] [mobile-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7]
-  1) [mobile-chromium] › test/acceptance/usability.spec.js:76:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots 
-
-    Test timeout of 60000ms exceeded.
-
-    Error: locator.click: Test ended.
-    Browser logs:
-
-    <launching> /Users/altugbozyaka/Library/Caches/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,AvoidCorsURLLoaderRestartOnRedirect,TcpPortRandomizationWin,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,PreconnectToSearch,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface,SkipListAccountsWithoutGaiaCookies --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --enable-unsafe-swiftshader --edge-skip-compat-layer-relaunch --disable-stack-profiler --disable-infobars --disable-sync --do-not-de-elevate --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --use-fake-ui-for-media-stream --use-fake-device-for-media-stream --user-data-dir=/var/folders/18/42gjtkqn3l30s9m1dq20lkk80000gn/T/playwright_chromiumdev_profile-yi3EV7 --remote-debugging-pipe --no-startup-window
-    <launched> pid=81252
-    [pid=81252][err] [1113/011323.809688:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-    [pid=81252][err] [1113/011323.812874:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-    [pid=81252][err] [1113/011323.847923:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-    [pid=81252][err] [1113/011324.941761:INFO:CONSOLE:7732] "The specified value "19960412" does not conform to the required format, "yyyy-MM-dd".", source:  (7732)
-    [pid=81252][err] [1113/011325.262444:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-    [pid=81252][err] [1113/011325.824244:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-    [pid=81252][err] [1113/011326.687294:ERROR:ui/display/mac/cv_display_link_mac.mm:191] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670
-    [pid=81252][err] [1113/011327.974740:ERROR:sandbox/mac/system_services.cc:31] SetApplicationIsDaemon: Error Domain=NSOSStatusErrorDomain Code=-50 "paramErr: error in user parameter list" (-50)
-    [pid=81252][err] [1113/011328.092237:INFO:third_party/blink/renderer/platform/p2p/ipc_socket_factory.cc:575] Setting new p2p socket buffer limit to 262144
-    [pid=81252][err] [1113/011328.098872:WARNING:third_party/webrtc/pc/jsep_transport_controller.cc:517] Not adding candidate because the JsepTransport doesn't exist. Ignore it.
-    [pid=81252][err] [1113/011328.099058:INFO:third_party/blink/renderer/platform/p2p/ipc_socket_factory.cc:575] Setting new p2p socket buffer limit to 262144
-    [pid=81252][err] [1113/011328.100744:INFO:third_party/blink/renderer/platform/p2p/ipc_socket_factory.cc:575] Setting new p2p socket buffer limit to 262144
-    [pid=81252][err] [1113/011328.111166:WARNING:third_party/webrtc/p2p/client/basic_port_allocator.cc:947] Discarding candidate because port is already done gathering.
-    [pid=81252][err] [1113/011328.115941:WARNING:third_party/webrtc/p2p/client/basic_port_allocator.cc:947] Discarding candidate because port is already done gathering.
-    [pid=81252][err] [1113/011336.110403:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 16 ms frame min delay=<unset> base min delay=0 us sync min delay=16 ms
-    [pid=81252][err] [1113/011338.110336:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 32 ms frame min delay=<unset> base min delay=0 us sync min delay=32 ms
-    [pid=81252][err] [1113/011338.110336:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 15 ms frame min delay=<unset> base min delay=0 us sync min delay=15 ms
-    [pid=81252][err] [1113/011340.110425:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 30 ms frame min delay=<unset> base min delay=0 us sync min delay=30 ms
-    [pid=81252][err] [1113/011341.110459:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 50 ms frame min delay=<unset> base min delay=0 us sync min delay=50 ms
-    [pid=81252][err] [1113/011343.111030:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 48 ms frame min delay=<unset> base min delay=0 us sync min delay=48 ms
-    [pid=81252][err] [1113/011346.110767:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 66 ms frame min delay=<unset> base min delay=0 us sync min delay=66 ms
-    [pid=81252][err] [1113/011347.110882:WARNING:third_party/webrtc/video/video_receive_stream2.cc:1269] Multiple playout delays set. Actual delay value set to 63 ms frame min delay=<unset> base min delay=0 us sync min delay=63 ms
-    [pid=81252] <gracefully close start>
-    Call log:
-      - waiting for locator('#report-dialog').getByRole('button', { name: 'Send report' })
-        - locator resolved to <button type="submit" class="btn btn-danger">Send report</button>
-      - attempting click action
-        - waiting for element to be visible, enabled and stable
-        - element is visible, enabled and stable
-        - scrolling into view if needed
-        - done scrolling
-        - <em>(optional)</em> from <label class="field">…</label> subtree intercepts pointer events
-      - retrying click action
-        - waiting for element to be visible, enabled and stable
-        - element is visible, enabled and stable
-        - scrolling into view if needed
-        - done scrolling
-        - <p role="alert" class="form-error"></p> intercepts pointer events
-      - retrying click action
-        - waiting 20ms
-        2 × waiting for element to be visible, enabled and stable
-          - element is visible, enabled and stable
-          - scrolling into view if needed
-          - done scrolling
-          - <span>…</span> from <label class="field">…</label> subtree intercepts pointer events
-        - retrying click action
-          - waiting 100ms
-        26 × waiting for element to be visible, enabled and stable
-           - element is visible, enabled and stable
-           - scrolling into view if needed
-           - done scrolling
-           - <span>…</span> from <label class="field">…</label> subtree intercepts pointer events
-         - retrying click action
-           - waiting 500ms
-           - waiting for element to be visible, enabled and stable
-           - element is visible, enabled and stable
-           - scrolling into view if needed
-           - done scrolling
-           - <p role="alert" class="form-error"></p> intercepts pointer events
-         - retrying click action
-           - waiting 500ms
-           - waiting for element to be visible, enabled and stable
-           - element is visible, enabled and stable
-           - scrolling into view if needed
-           - done scrolling
-           - <span>…</span> from <label class="field">…</label> subtree intercepts pointer events
-         - retrying click action
-           - waiting 500ms
-           - waiting for element to be visible, enabled and stable
-           - element is visible, enabled and stable
-           - scrolling into view if needed
-           - done scrolling
-           - <span>…</span> from <label class="field">…</label> subtree intercepts pointer events
-         - retrying click action
-           - waiting 500ms
-        - waiting for element to be visible, enabled and stable
-
-
-      30 |       hand = 'mouse';
-      31 |       const t = Date.now();
-    > 32 |       await locator.click();
-         |                     ^
-      33 |       add('click', detail, ops0, Date.now() - t);
-      34 |     },
-      35 |     async type(locator, text, detail) {
-        at Object.click (/Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/acceptance/usability.spec.js:32:21)
-        at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/acceptance/usability.spec.js:141:12
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/acceptance-usability-USE-1-583cf-e-estimates-and-screenshots-mobile-chromium/test-failed-2.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/acceptance-usability-USE-1-583cf-e-estimates-and-screenshots-mobile-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/acceptance-usability-USE-1-583cf-e-estimates-and-screenshots-mobile-chromium/error-context.md
-
-    Error Context: test-results/acceptance-usability-USE-1-583cf-e-estimates-and-screenshots-mobile-chromium/error-context.md
-
-    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
-    test-results/acceptance-usability-USE-1-583cf-e-estimates-and-screenshots-mobile-chromium/trace.zip
-    Usage:
-
-        npx playwright show-trace test-results/acceptance-usability-USE-1-583cf-e-estimates-and-screenshots-mobile-chromium/trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-
-  1 failed
-    [mobile-chromium] › test/acceptance/usability.spec.js:76:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots 
-  14 passed (1.4m)
+[1/17] [desktop-chromium] › test/acceptance/stories.spec.js:21:1 › US-1: Given two people studying the same thing, when they search, then each sees the other and they are in a call after one click each
+[2/17] [desktop-chromium] › test/acceptance/accessibility.spec.js:32:1 › A11Y-1: sign-in, create-account and check-your-inbox screens
+[3/17] [desktop-chromium] › test/acceptance/accessibility.spec.js:43:1 › A11Y-2: activity prompt, matches with a card, incoming panel, call and report dialog
+[4/17] [desktop-chromium] › test/acceptance/stories.spec.js:36:1 › US-2: Given a stranger sees me in matches, requests or a call, then they never see my surname, email or date of birth
+[5/17] [desktop-chromium] › test/acceptance/stories.spec.js:56:1 › US-3: Given I am in a call with someone abusive, when I report and block them, then the call ends and we never see each other again
+[6/17] [desktop-chromium] › test/acceptance/accessibility.spec.js:67:1 › A11Y-3: everything on the sign-in screen can be reached and used with the keyboard alone
+[7/17] [desktop-chromium] › test/acceptance/usability.spec.js:73:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots
+[8/17] [desktop-chromium] › test/acceptance/stories.spec.js:82:1 › US-4: Given two people doing unrelated things, then they are not offered to each other
+[9/17] [desktop-chromium] › test/system/journeys.spec.js:11:1 › ST-1: sign up, confirm email, find a match, request, accept, video call, chat, leave
+[10/17] [mobile-chromium] › test/acceptance/usability.spec.js:73:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots
+[11/17] [desktop-chromium] › test/system/journeys.spec.js:56:1 › ST-2: registration refuses under-18s and shows field errors in the form
+[12/17] [desktop-chromium] › test/system/journeys.spec.js:64:1 › ST-3: an unconfirmed account waits on "Check your inbox" and cannot reach matching
+[13/17] [desktop-chromium] › test/system/journeys.spec.js:74:1 › ST-4: sign out, wrong password, then sign back in
+[14/17] [desktop-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7]
+[15/17] [desktop-chromium] › test/system/journeys.spec.js:113:1 › ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent
+[16/17] [mobile-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7]
+[17/17] [mobile-chromium] › test/system/journeys.spec.js:113:1 › ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent
+  17 passed (42.0s)

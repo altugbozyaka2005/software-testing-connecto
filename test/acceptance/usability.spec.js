@@ -66,10 +66,7 @@ function recorder(page) {
 let server;
 const tasks = [];
 test.beforeAll(async () => { server = await startServer(); fs.mkdirSync(path.join(OUT, 'screens'), { recursive: true }); });
-test.afterAll(() => {
-  server.stop();
-  fs.writeFileSync(path.join(OUT, 'task-metrics.json'), JSON.stringify({ klm: KLM, targets: TARGETS, tasks }, null, 2));
-});
+test.afterAll(() => server.stop());
 
 const shot = (page, name) => page.screenshot({ path: path.join(OUT, 'screens', `${name}-${test.info().project.name}.png`), fullPage: false });
 
@@ -144,6 +141,8 @@ test('USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estima
   await shot(b, '09-after-report');
   tasks.push({ device: info.project.name, ...t3.summary('T3 report and block') });
 
+  // One file per device, written before the assertions so a failure still leaves the evidence.
+  fs.writeFileSync(path.join(OUT, `task-metrics-${info.project.name}.json`), JSON.stringify({ klm: KLM, targets: TARGETS, tasks }, null, 2));
   for (const t of tasks.filter((x) => x.device === info.project.name)) {
     expect.soft(t.clicks, `${t.task}: clicks`).toBeLessThanOrEqual(TARGETS[t.task].clicks);
     expect.soft(t.klmSeconds, `${t.task}: KLM seconds`).toBeLessThanOrEqual(TARGETS[t.task].klmS);
