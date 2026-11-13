@@ -106,3 +106,27 @@ test('ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desk
   expect(await sideways()).toBe(0);
   await page.screenshot({ path: `reports/usability/screens/matches-${test.info().project.name}.png` });
 });
+
+// D9 (found by the usability measurements on a phone): the call screen's button row did not wrap, so
+// the page grew to 524px on a 412px phone, mobile Chrome zoomed everything out, and the report
+// dialog's "Send report" button ended up covered by a label.
+test('ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent', async ({ browser }, info) => {
+  const device = info.project.use;
+  const [ca, cb] = [await browser.newContext({ ...device }), await browser.newContext({ ...device })];
+  const [a, b] = [await ca.newPage(), await cb.newPage()];
+  await signUp(a, server, person('Pia', { last: 'Ono' }));
+  await signUp(b, server, person('Rex', { last: 'Lund' }));
+  await search(a, 'phone layout test baking bread');
+  await search(b, 'baking sourdough bread');
+  await card(b, 'Pia O.').locator('.match-hit').click();
+  await a.locator('#incoming-list .req-card').getByRole('button', { name: 'Accept · join call' }).click();
+  await expect(b.locator('#screen-room')).toBeVisible();
+  await b.waitForTimeout(800);
+  expect(await b.evaluate(() => window.innerWidth)).toBe(device.viewport.width);
+  await b.locator('#report-btn').click();
+  await b.locator('#report-dialog').getByLabel('Spam, scam or advertising').check();
+  await b.locator('#report-dialog').getByRole('button', { name: 'Send report' }).click({ timeout: 5000 });
+  await expect(b.locator('#screen-room')).toBeHidden();
+  await ca.close();
+  await cb.close();
+});

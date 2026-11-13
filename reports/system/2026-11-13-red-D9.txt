@@ -1,0 +1,43 @@
+
+Running 1 test using 1 worker
+
+[1/1] [mobile-chromium] › test/system/journeys.spec.js:113:1 › ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent
+  1) [mobile-chromium] › test/system/journeys.spec.js:113:1 › ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 412
+    Received: 524
+
+      123 |   await expect(b.locator('#screen-room')).toBeVisible();
+      124 |   await b.waitForTimeout(800);
+    > 125 |   expect(await b.evaluate(() => window.innerWidth)).toBe(device.viewport.width);
+          |                                                     ^
+      126 |   await b.locator('#report-btn').click();
+      127 |   await b.locator('#report-dialog').getByLabel('Spam, scam or advertising').check();
+      128 |   await b.locator('#report-dialog').getByRole('button', { name: 'Send report' }).click({ timeout: 5000 });
+        at /Users/altugbozyaka/Desktop/CODING/software-testing-connecto/test/system/journeys.spec.js:125:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/system-journeys-ST-6-mobil-cfb71-th-and-a-report-can-be-sent-mobile-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/system-journeys-ST-6-mobil-cfb71-th-and-a-report-can-be-sent-mobile-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/system-journeys-ST-6-mobil-cfb71-th-and-a-report-can-be-sent-mobile-chromium/error-context.md
+
+    Error Context: test-results/system-journeys-ST-6-mobil-cfb71-th-and-a-report-can-be-sent-mobile-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/system-journeys-ST-6-mobil-cfb71-th-and-a-report-can-be-sent-mobile-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/system-journeys-ST-6-mobil-cfb71-th-and-a-report-can-be-sent-mobile-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    [mobile-chromium] › test/system/journeys.spec.js:113:1 › ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent 
