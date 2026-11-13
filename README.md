@@ -14,12 +14,15 @@ npm test           # matcher + end-to-end socket flow
 To try it alone, open two browser windows (one normal, one incognito), create two
 accounts, and enter similar activities.
 
-## Production
+## Production (reference only)
 
-Live at **https://connecto.clientchase.com** on the Hostinger VPS (`ssh connecto-vps`).
+> **software-testing-connecto** is a separate testing copy of Connecto. It has no deploy script and
+> no git remote, so it can't change the live site or the original GitHub repo. The notes below describe
+> how the original app is hosted and are kept for reference.
 
-- **Deploy:** `./deploy.sh` runs the tests, syncs code to `/docker/connecto`, rebuilds and restarts
-  the container, and waits for its health check.
+The original runs at https://connecto.clientchase.com on a Hostinger VPS.
+
+- **Deploy:** not available in this copy (the original's `deploy.sh` was removed).
 - **HTTPS:** the existing Traefik (`/docker/traefik`) routes the domain via the labels in
   `compose.yaml` and renews the Let's Encrypt certificate automatically.
 - **Data:** SQLite on the Docker volume `connecto_connecto_data` (`/data` in the container).
