@@ -141,9 +141,12 @@ function respond(requestId, toId, accept) {
   return { ...r, status: accept ? 'accepted' : 'declined' };
 }
 
-// Withdraw your own pending request.
+// Withdraw your own pending request. The row is kept (as 'declined', which nobody is shown and the
+// cleanup removes after a week) so that cancelling does not reset the daily request limit: deleting
+// it let request/cancel loops send unlimited notifications (defect D5).
 function cancel(requestId, fromId) {
-  db.prepare("DELETE FROM connect_requests WHERE id = ? AND from_id = ? AND status = 'pending'").run(requestId, fromId);
+  db.prepare("UPDATE connect_requests SET status = 'declined', updated_at = ? WHERE id = ? AND from_id = ? AND status = 'pending'")
+    .run(Date.now(), requestId, fromId);
 }
 
 // Both want to talk: lets them call each other directly when both are online.
