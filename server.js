@@ -29,6 +29,7 @@ const MIN_SCORE = 0.15;
 // How long after a call you can still report or block the person you were talking to.
 const LAST_PEER_TTL_MS = 30 * 60 * 1000;
 const MAX_TRANSCRIPT = 100;
+const CHAT_BURST = { n: 15, ms: 10 * 1000 }; // in-call chat: at most 15 messages per 10 s per tab
 // Each shared interest nudges a match up a little (only for matches that already qualify).
 const INTEREST_BOOST = 0.05;
 const MAX_INTEREST_BOOST = 0.15;
@@ -926,11 +927,17 @@ io.on('connection', (socket) => {
     socket.to(u.roomId).emit('media-state', { video: !!data.video, audio: !!data.audio, from: u.id });
   });
 
+  // Same burst limit as direct messages (D10): flooding a call is harassment, and would also push
+  // earlier messages out of the 100-message transcript a report keeps as evidence.
+  const chatTimes = [];
   socket.on('chat', ({ text } = {}) => {
     const u = me();
     const msg = clean(text, 1000);
     if (!u || !u.roomId || !msg) return;
     const at = Date.now();
+    while (chatTimes.length && at - chatTimes[0] >= CHAT_BURST.ms) chatTimes.shift();
+    if (chatTimes.length >= CHAT_BURST.n) return metrics.inc('chat.rate_limited');
+    chatTimes.push(at);
     const room = rooms.get(u.roomId);
     room?.chat.push({ name: u.name, text: msg, at });
     if (room && room.chat.length > MAX_TRANSCRIPT) room.chat.shift();
