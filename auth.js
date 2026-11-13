@@ -510,4 +510,5 @@ module.exports = {
   displayName, validAvatar, validateRegistration, ageOn, profileExtras,
   // Exported for unit tests (test/unit/auth.validation.test.js).
   validateProfile, passwordProblem, parseDob, parseCookies, MAX_AVATAR_BYTES,
+  createSession, createEmailToken, consumeEmailToken, recentlyEmailed, hashPassword, verifyPassword, COOKIE,
 };

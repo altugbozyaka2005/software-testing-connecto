@@ -286,3 +286,44 @@ test('random command sequences behave like the model (fast-check, 200 walks)', (
     { numRuns: 200 },
   );
 });
+
+// ---- Background searches (added after mutation run 1 showed start/stop/limits were only integration-tested) ----
+
+test('background searches: at most 3 per person, same wording extends, an id edits, stop one or all, expiry', async () => {
+  const a = makeUser();
+  const t0 = Date.UTC(2026, 10, 9, 8);
+  await atTime(t0, () => {
+    const s1 = bg.start(a, 'chess', 3);
+    assert.strictEqual(s1.expiresAt, t0 + 3 * HOUR);
+    assert.strictEqual(bg.start(a, 'Chess', 24).id, s1.id, 'same wording (any case) extends instead of adding');
+    assert.strictEqual(bg.forUser(a).length, 1);
+    assert.strictEqual(bg.forUser(a)[0].expiresAt, t0 + 24 * HOUR);
+    bg.start(a, 'go', 3);
+    bg.start(a, 'poker', 3);
+    assert.match(bg.start(a, 'bridge', 3).error, /up to 3/);
+    const edited = bg.start(a, 'speed chess', 12, s1.id);
+    assert.strictEqual(edited.id, s1.id);
+    assert.strictEqual(edited.activity, 'speed chess');
+    assert.match(bg.start(a, 'x', 3, 999999).error, /has ended/);
+    assert.match(bg.start(makeUser(), 'x', 3, s1.id).error, /has ended/, "someone else's search id");
+    bg.stop(a, s1.id);
+    assert.deepStrictEqual(bg.forUser(a).map((s) => s.activity).sort(), ['go', 'poker']);
+  });
+  await atTime(t0 + 3 * HOUR, () => {
+    assert.deepStrictEqual(bg.forUser(a), [], 'expired exactly at expiresAt');
+    assert.strictEqual(bg.has(a), false);
+  });
+  await atTime(t0, () => { bg.stop(a); assert.deepStrictEqual(bg.forUser(a), []); });
+});
+
+test('reopen: an accepted request is reused, a pending one accepted, otherwise a new accepted one is made', () => {
+  const [a, b, c] = [makeUser(), makeUser(), makeUser()];
+  const fresh = bg.reopen(a, b, 'planning');
+  assert.strictEqual(fresh.status, 'accepted');
+  assert.strictEqual(fresh.activity, 'planning');
+  assert.strictEqual(bg.reopen(b, a, 'x').id, fresh.id);
+  const pending = bg.request(c, a, 'y').request;
+  const r = bg.reopen(a, c, 'z');
+  assert.strictEqual(r.id, pending.id);
+  assert.strictEqual(bg.between(a, c).status, 'accepted');
+});
