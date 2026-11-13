@@ -25,9 +25,18 @@ async function start() {
   return `http://localhost:${server.address().port}`;
 }
 
+// Oracle for robustness (SR4): the server runs in the test process, and node:test turns uncaught
+// exceptions into warnings instead of crashing, so a handler that would have killed the real server
+// could go unnoticed. Record them and fail the test file in its `after` hook (see docs/test-log.md D4).
+const crashes = [];
+process.on('uncaughtException', (err) => crashes.push(err));
+
 function stop() {
   io.close();
   server.close();
+  if (crashes.length) {
+    throw new Error(`The server threw ${crashes.length} uncaught exception(s); first: ${crashes[0].stack}`);
+  }
 }
 
 async function request(base, method, path, body, cookie) {
@@ -80,4 +89,4 @@ async function matchUp(a, b, activity) {
   return rooms;
 }
 
-module.exports = { start, stop, request, newUser, signedInSocket, lastEmail, once, call, matchUp, Client };
+module.exports = { crashes, start, stop, request, newUser, signedInSocket, lastEmail, once, call, matchUp, Client };
