@@ -1,0 +1,1340 @@
+{
+  "date": "2026-11-13T01:20:35.236Z",
+  "pairs": 96,
+  "matches": 53,
+  "threshold": 0.15,
+  "A": {
+    "tp": 34,
+    "fp": 22,
+    "tn": 21,
+    "fn": 19,
+    "accuracy": {
+      "value": 0.573,
+      "ci95": [
+        0.473,
+        0.667
+      ],
+      "k": 55,
+      "n": 96
+    },
+    "precision": {
+      "value": 0.607,
+      "ci95": [
+        0.476,
+        0.724
+      ],
+      "k": 34,
+      "n": 56
+    },
+    "recall": {
+      "value": 0.642,
+      "ci95": [
+        0.507,
+        0.757
+      ],
+      "k": 34,
+      "n": 53
+    },
+    "specificity": {
+      "value": 0.488,
+      "ci95": [
+        0.346,
+        0.632
+      ],
+      "k": 21,
+      "n": 43
+    }
+  },
+  "B": {
+    "tp": 51,
+    "fp": 23,
+    "tn": 20,
+    "fn": 2,
+    "accuracy": {
+      "value": 0.74,
+      "ci95": [
+        0.644,
+        0.817
+      ],
+      "k": 71,
+      "n": 96
+    },
+    "precision": {
+      "value": 0.689,
+      "ci95": [
+        0.577,
+        0.783
+      ],
+      "k": 51,
+      "n": 74
+    },
+    "recall": {
+      "value": 0.962,
+      "ci95": [
+        0.872,
+        0.99
+      ],
+      "k": 51,
+      "n": 53
+    },
+    "specificity": {
+      "value": 0.465,
+      "ci95": [
+        0.325,
+        0.611
+      ],
+      "k": 20,
+      "n": 43
+    }
+  },
+  "C": {
+    "threshold": 0.5,
+    "tp": 48,
+    "fp": 12,
+    "tn": 31,
+    "fn": 5,
+    "accuracy": {
+      "value": 0.823,
+      "ci95": [
+        0.735,
+        0.886
+      ],
+      "k": 79,
+      "n": 96
+    },
+    "precision": {
+      "value": 0.8,
+      "ci95": [
+        0.682,
+        0.882
+      ],
+      "k": 48,
+      "n": 60
+    },
+    "recall": {
+      "value": 0.906,
+      "ci95": [
+        0.797,
+        0.959
+      ],
+      "k": 48,
+      "n": 53
+    },
+    "specificity": {
+      "value": 0.721,
+      "ci95": [
+        0.573,
+        0.833
+      ],
+      "k": 31,
+      "n": 43
+    }
+  },
+  "mcnemar": {
+    "onlyACorrect": 1,
+    "onlyBCorrect": 17,
+    "pExact": 0.000145
+  },
+  "mcnemarBvsC": {
+    "onlyBCorrect": 3,
+    "onlyCCorrect": 11,
+    "pExact": 0.0574
+  },
+  "groups": {
+    "same words": {
+      "pairs": 8,
+      "label": "match",
+      "correctA": 8,
+      "correctB": 8,
+      "correctC": 8
+    },
+    "paraphrase": {
+      "pairs": 20,
+      "label": "match",
+      "correctA": 17,
+      "correctB": 20,
+      "correctC": 19
+    },
+    "slang": {
+      "pairs": 5,
+      "label": "match",
+      "correctA": 2,
+      "correctB": 3,
+      "correctC": 1
+    },
+    "typo": {
+      "pairs": 6,
+      "label": "match",
+      "correctA": 6,
+      "correctB": 6,
+      "correctC": 6
+    },
+    "cross-lingual": {
+      "pairs": 14,
+      "label": "match",
+      "correctA": 1,
+      "correctB": 14,
+      "correctC": 14
+    },
+    "shared word": {
+      "pairs": 15,
+      "label": "no match",
+      "correctA": 1,
+      "correctB": 1,
+      "correctC": 8
+    },
+    "same area": {
+      "pairs": 8,
+      "label": "no match",
+      "correctA": 0,
+      "correctB": 0,
+      "correctC": 3
+    },
+    "unrelated": {
+      "pairs": 20,
+      "label": "no match",
+      "correctA": 20,
+      "correctB": 19,
+      "correctC": 20
+    }
+  },
+  "sweep": [
+    {
+      "threshold": 0.1,
+      "accuracyA": 0.573,
+      "accuracyB": 0.74,
+      "accuracyC": 0.74
+    },
+    {
+      "threshold": 0.15,
+      "accuracyA": 0.573,
+      "accuracyB": 0.74,
+      "accuracyC": 0.74
+    },
+    {
+      "threshold": 0.2,
+      "accuracyA": 0.573,
+      "accuracyB": 0.74,
+      "accuracyC": 0.74
+    },
+    {
+      "threshold": 0.3,
+      "accuracyA": 0.604,
+      "accuracyB": 0.75,
+      "accuracyC": 0.75
+    },
+    {
+      "threshold": 0.4,
+      "accuracyA": 0.604,
+      "accuracyB": 0.74,
+      "accuracyC": 0.75
+    },
+    {
+      "threshold": 0.5,
+      "accuracyA": 0.615,
+      "accuracyB": 0.771,
+      "accuracyC": 0.823
+    }
+  ],
+  "onlineTest": {
+    "metric": "share of match requests that are accepted",
+    "assumedBaseline": 0.3,
+    "minimumDetectableLift": 0.05,
+    "perArm": 1377,
+    "alpha": 0.05,
+    "power": 0.8
+  },
+  "wrongB": [
+    {
+      "group": "slang",
+      "a": "grinding ranked in val",
+      "b": "playing valorant competitive",
+      "label": 1,
+      "A": 0.022,
+      "B": 0.082,
+      "C": 0.082
+    },
+    {
+      "group": "slang",
+      "a": "doomscrolling",
+      "b": "scrolling social media",
+      "label": 1,
+      "A": 0.04,
+      "B": 0.04,
+      "C": 0.04
+    },
+    {
+      "group": "shared word",
+      "a": "playing chess",
+      "b": "playing football",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.675
+    },
+    {
+      "group": "shared word",
+      "a": "reading a novel",
+      "b": "reading my emails",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.459
+    },
+    {
+      "group": "shared word",
+      "a": "learning spanish",
+      "b": "learning to drive",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.46
+    },
+    {
+      "group": "shared word",
+      "a": "watching football",
+      "b": "playing football",
+      "label": 0,
+      "A": 0.265,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "shared word",
+      "a": "cooking dinner",
+      "b": "eating dinner with family",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.654
+    },
+    {
+      "group": "shared word",
+      "a": "writing code",
+      "b": "writing a poem",
+      "label": 0,
+      "A": 0.433,
+      "B": 0.433,
+      "C": 0.392
+    },
+    {
+      "group": "shared word",
+      "a": "studying chemistry",
+      "b": "studying law",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.685
+    },
+    {
+      "group": "shared word",
+      "a": "playing piano",
+      "b": "playing valorant",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.453
+    },
+    {
+      "group": "shared word",
+      "a": "running a marathon",
+      "b": "running a business",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.436
+    },
+    {
+      "group": "shared word",
+      "a": "training my dog",
+      "b": "training for a marathon",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.688
+    },
+    {
+      "group": "shared word",
+      "a": "drawing anime",
+      "b": "watching anime",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.781,
+      "C": 0.781
+    },
+    {
+      "group": "shared word",
+      "a": "building a website",
+      "b": "building lego",
+      "label": 0,
+      "A": 0.238,
+      "B": 0.414,
+      "C": 0.414
+    },
+    {
+      "group": "shared word",
+      "a": "making music",
+      "b": "making bread",
+      "label": 0,
+      "A": 0.228,
+      "B": 0.228,
+      "C": 0.228
+    },
+    {
+      "group": "shared word",
+      "a": "listening to a podcast",
+      "b": "listening to my lecture recording",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.925,
+      "C": 0.925
+    },
+    {
+      "group": "same area",
+      "a": "studying calculus",
+      "b": "studying history",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.68
+    },
+    {
+      "group": "same area",
+      "a": "playing guitar",
+      "b": "playing drums",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.684
+    },
+    {
+      "group": "same area",
+      "a": "going to the gym",
+      "b": "swimming laps",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.45
+    },
+    {
+      "group": "same area",
+      "a": "watching a horror movie",
+      "b": "watching youtube tutorials",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.6
+    },
+    {
+      "group": "same area",
+      "a": "learning french",
+      "b": "learning korean",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.685
+    },
+    {
+      "group": "same area",
+      "a": "baking a cake",
+      "b": "grilling burgers",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.46
+    },
+    {
+      "group": "same area",
+      "a": "playing minecraft",
+      "b": "playing chess",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.673
+    },
+    {
+      "group": "same area",
+      "a": "knitting a scarf",
+      "b": "painting a portrait",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.458
+    },
+    {
+      "group": "unrelated",
+      "a": "ders çalışıyorum",
+      "b": "film izliyorum",
+      "label": 0,
+      "A": 0.03,
+      "B": 0.446,
+      "C": 0.446
+    }
+  ],
+  "rows": [
+    {
+      "group": "same words",
+      "a": "studying calculus",
+      "b": "studying calculus",
+      "label": 1,
+      "A": 1,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "same words",
+      "a": "reading a book",
+      "b": "Reading a book!",
+      "label": 1,
+      "A": 1,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "same words",
+      "a": "at the gym",
+      "b": "at the gym rn",
+      "label": 1,
+      "A": 1,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "same words",
+      "a": "learning spanish",
+      "b": "learning Spanish",
+      "label": 1,
+      "A": 1,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "same words",
+      "a": "playing chess",
+      "b": "playing chess online",
+      "label": 1,
+      "A": 0.858,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "same words",
+      "a": "baking bread",
+      "b": "baking sourdough bread",
+      "label": 1,
+      "A": 0.831,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "same words",
+      "a": "watching anime",
+      "b": "watching anime tonight",
+      "label": 1,
+      "A": 0.856,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "same words",
+      "a": "practicing guitar",
+      "b": "guitar practice",
+      "label": 1,
+      "A": 0.79,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "lifting weights",
+      "b": "working out at the gym",
+      "label": 1,
+      "A": 0.5,
+      "B": 0.833,
+      "C": 0.833
+    },
+    {
+      "group": "paraphrase",
+      "a": "going for a run",
+      "b": "jogging in the park",
+      "label": 1,
+      "A": 0.5,
+      "B": 0.967,
+      "C": 0.967
+    },
+    {
+      "group": "paraphrase",
+      "a": "grinding leetcode",
+      "b": "prepping for coding interviews",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.456
+    },
+    {
+      "group": "paraphrase",
+      "a": "revising for my biology exam",
+      "b": "studying biology",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "cooking dinner",
+      "b": "making pasta for supper",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.962,
+      "C": 0.962
+    },
+    {
+      "group": "paraphrase",
+      "a": "writing my thesis",
+      "b": "working on my dissertation",
+      "label": 1,
+      "A": 0.007,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "doing homework",
+      "b": "finishing my assignments",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.729,
+      "C": 0.729
+    },
+    {
+      "group": "paraphrase",
+      "a": "learning to code",
+      "b": "teaching myself programming",
+      "label": 1,
+      "A": 0.5,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "binge watching netflix",
+      "b": "watching a series",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.676
+    },
+    {
+      "group": "paraphrase",
+      "a": "cleaning my room",
+      "b": "tidying up my flat",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "meditating",
+      "b": "doing a mindfulness session",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "painting with watercolors",
+      "b": "doing some watercolour art",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "playing fifa",
+      "b": "playing a football video game",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.893,
+      "C": 0.893
+    },
+    {
+      "group": "paraphrase",
+      "a": "practicing piano",
+      "b": "playing the keyboard",
+      "label": 1,
+      "A": 0.008,
+      "B": 0.681,
+      "C": 0.681
+    },
+    {
+      "group": "paraphrase",
+      "a": "doing yoga",
+      "b": "stretching on my yoga mat",
+      "label": 1,
+      "A": 0.711,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "job hunting",
+      "b": "applying for jobs",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "planning a trip",
+      "b": "organising my holiday",
+      "label": 1,
+      "A": 0,
+      "B": 0.636,
+      "C": 0.636
+    },
+    {
+      "group": "paraphrase",
+      "a": "knitting",
+      "b": "crocheting a blanket",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "reading manga",
+      "b": "reading comics",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "paraphrase",
+      "a": "studying for the bar exam",
+      "b": "law exam revision",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.715,
+      "C": 0.715
+    },
+    {
+      "group": "slang",
+      "a": "chillin rn",
+      "b": "just relaxing",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.45
+    },
+    {
+      "group": "slang",
+      "a": "grinding ranked in val",
+      "b": "playing valorant competitive",
+      "label": 1,
+      "A": 0.022,
+      "B": 0.082,
+      "C": 0.082
+    },
+    {
+      "group": "slang",
+      "a": "hitting the books",
+      "b": "studying",
+      "label": 1,
+      "A": 0,
+      "B": 0.304,
+      "C": 0.304
+    },
+    {
+      "group": "slang",
+      "a": "gym sesh",
+      "b": "working out",
+      "label": 1,
+      "A": 0.5,
+      "B": 0.799,
+      "C": 0.799
+    },
+    {
+      "group": "slang",
+      "a": "doomscrolling",
+      "b": "scrolling social media",
+      "label": 1,
+      "A": 0.04,
+      "B": 0.04,
+      "C": 0.04
+    },
+    {
+      "group": "typo",
+      "a": "progamming in pythn",
+      "b": "programming in python",
+      "label": 1,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.584
+    },
+    {
+      "group": "typo",
+      "a": "stdying calculus",
+      "b": "studying calculus",
+      "label": 1,
+      "A": 0.762,
+      "B": 0.925,
+      "C": 0.925
+    },
+    {
+      "group": "typo",
+      "a": "playng chess",
+      "b": "playing chess",
+      "label": 1,
+      "A": 0.768,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "typo",
+      "a": "redaing a novel",
+      "b": "reading a novel",
+      "label": 1,
+      "A": 0.739,
+      "B": 0.85,
+      "C": 0.85
+    },
+    {
+      "group": "typo",
+      "a": "cookng dinner",
+      "b": "cooking dinner",
+      "label": 1,
+      "A": 0.772,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "typo",
+      "a": "lerning french",
+      "b": "learning french",
+      "label": 1,
+      "A": 0.533,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "playing chess",
+      "b": "satranç oynuyorum",
+      "label": 1,
+      "A": 0,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "playing chess",
+      "b": "jugando al ajedrez",
+      "label": 1,
+      "A": 0,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "studying",
+      "b": "ders çalışıyorum",
+      "label": 1,
+      "A": 0,
+      "B": 0.872,
+      "C": 0.872
+    },
+    {
+      "group": "cross-lingual",
+      "a": "reading a book",
+      "b": "kitap okuyorum",
+      "label": 1,
+      "A": 0,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "learning german",
+      "b": "deutsch lernen",
+      "label": 1,
+      "A": 0.015,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "cooking dinner",
+      "b": "je prépare le dîner",
+      "label": 1,
+      "A": 0.021,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "going for a run",
+      "b": "koşuya çıkıyorum",
+      "label": 1,
+      "A": 0,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "listening to music",
+      "b": "escuchando música",
+      "label": 1,
+      "A": 0.014,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "watching a movie",
+      "b": "film izliyorum",
+      "label": 1,
+      "A": 0.7,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "doing homework",
+      "b": "hago mis deberes",
+      "label": 1,
+      "A": 0.009,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "playing guitar",
+      "b": "gitar çalıyorum",
+      "label": 1,
+      "A": 0.033,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "learning japanese",
+      "b": "日本語を勉強しています",
+      "label": 1,
+      "A": 0,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "reading a novel",
+      "b": "читаю роман",
+      "label": 1,
+      "A": 0,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "cross-lingual",
+      "a": "working out",
+      "b": "faire du sport à la salle",
+      "label": 1,
+      "A": 0,
+      "B": 0.59,
+      "C": 0.59
+    },
+    {
+      "group": "shared word",
+      "a": "playing chess",
+      "b": "playing football",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.675
+    },
+    {
+      "group": "shared word",
+      "a": "reading a novel",
+      "b": "reading my emails",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.459
+    },
+    {
+      "group": "shared word",
+      "a": "learning spanish",
+      "b": "learning to drive",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.46
+    },
+    {
+      "group": "shared word",
+      "a": "watching football",
+      "b": "playing football",
+      "label": 0,
+      "A": 0.265,
+      "B": 1,
+      "C": 1
+    },
+    {
+      "group": "shared word",
+      "a": "cooking dinner",
+      "b": "eating dinner with family",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.654
+    },
+    {
+      "group": "shared word",
+      "a": "writing code",
+      "b": "writing a poem",
+      "label": 0,
+      "A": 0.433,
+      "B": 0.433,
+      "C": 0.392
+    },
+    {
+      "group": "shared word",
+      "a": "studying chemistry",
+      "b": "studying law",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.685
+    },
+    {
+      "group": "shared word",
+      "a": "playing piano",
+      "b": "playing valorant",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.453
+    },
+    {
+      "group": "shared word",
+      "a": "running a marathon",
+      "b": "running a business",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.5,
+      "C": 0.436
+    },
+    {
+      "group": "shared word",
+      "a": "training my dog",
+      "b": "training for a marathon",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.688
+    },
+    {
+      "group": "shared word",
+      "a": "drawing anime",
+      "b": "watching anime",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.781,
+      "C": 0.781
+    },
+    {
+      "group": "shared word",
+      "a": "building a website",
+      "b": "building lego",
+      "label": 0,
+      "A": 0.238,
+      "B": 0.414,
+      "C": 0.414
+    },
+    {
+      "group": "shared word",
+      "a": "doing my taxes",
+      "b": "doing yoga",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "shared word",
+      "a": "making music",
+      "b": "making bread",
+      "label": 0,
+      "A": 0.228,
+      "B": 0.228,
+      "C": 0.228
+    },
+    {
+      "group": "shared word",
+      "a": "listening to a podcast",
+      "b": "listening to my lecture recording",
+      "label": 0,
+      "A": 0.5,
+      "B": 0.925,
+      "C": 0.925
+    },
+    {
+      "group": "same area",
+      "a": "studying calculus",
+      "b": "studying history",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.68
+    },
+    {
+      "group": "same area",
+      "a": "playing guitar",
+      "b": "playing drums",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.684
+    },
+    {
+      "group": "same area",
+      "a": "going to the gym",
+      "b": "swimming laps",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.45
+    },
+    {
+      "group": "same area",
+      "a": "watching a horror movie",
+      "b": "watching youtube tutorials",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.6
+    },
+    {
+      "group": "same area",
+      "a": "learning french",
+      "b": "learning korean",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.685
+    },
+    {
+      "group": "same area",
+      "a": "baking a cake",
+      "b": "grilling burgers",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.46
+    },
+    {
+      "group": "same area",
+      "a": "playing minecraft",
+      "b": "playing chess",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.673
+    },
+    {
+      "group": "same area",
+      "a": "knitting a scarf",
+      "b": "painting a portrait",
+      "label": 0,
+      "A": 0.7,
+      "B": 0.7,
+      "C": 0.458
+    },
+    {
+      "group": "unrelated",
+      "a": "studying calculus",
+      "b": "playing valorant",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "cooking dinner",
+      "b": "learning spanish",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "meditating",
+      "b": "doing my taxes",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "playing chess",
+      "b": "cooking dinner",
+      "label": 0,
+      "A": 0.009,
+      "B": 0.009,
+      "C": 0.009
+    },
+    {
+      "group": "unrelated",
+      "a": "reading a novel",
+      "b": "practicing guitar",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "going for a run",
+      "b": "writing my thesis",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "cleaning my room",
+      "b": "learning japanese",
+      "label": 0,
+      "A": 0.008,
+      "B": 0.008,
+      "C": 0.008
+    },
+    {
+      "group": "unrelated",
+      "a": "watching netflix",
+      "b": "job hunting",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "gardening",
+      "b": "coding a react app",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "lifting weights",
+      "b": "knitting a scarf",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "satranç oynuyorum",
+      "b": "yemek yapıyorum",
+      "label": 0,
+      "A": 0.028,
+      "B": 0.036,
+      "C": 0.036
+    },
+    {
+      "group": "unrelated",
+      "a": "ders çalışıyorum",
+      "b": "film izliyorum",
+      "label": 0,
+      "A": 0.03,
+      "B": 0.446,
+      "C": 0.446
+    },
+    {
+      "group": "unrelated",
+      "a": "jugando al ajedrez",
+      "b": "cocinando la cena",
+      "label": 0,
+      "A": 0.019,
+      "B": 0.019,
+      "C": 0.019
+    },
+    {
+      "group": "unrelated",
+      "a": "ışık tasarımı",
+      "b": "şık elbise",
+      "label": 0,
+      "A": 0.017,
+      "B": 0.017,
+      "C": 0.017
+    },
+    {
+      "group": "unrelated",
+      "a": "日本語を勉強しています",
+      "b": "料理をしています",
+      "label": 0,
+      "A": 0.047,
+      "B": 0.047,
+      "C": 0.047
+    },
+    {
+      "group": "unrelated",
+      "a": "planning a trip",
+      "b": "doing yoga",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "playing the violin",
+      "b": "fixing my bike",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "doing laundry",
+      "b": "studying physics",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "birdwatching",
+      "b": "playing poker",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    },
+    {
+      "group": "unrelated",
+      "a": "writing a cover letter",
+      "b": "skateboarding",
+      "label": 0,
+      "A": 0,
+      "B": 0,
+      "C": 0
+    }
+  ]
+}
