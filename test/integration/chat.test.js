@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { start, stop, signedInSocket, once, call } = require('../support/helpers');
+const { start, stop, signedInSocket, once, call, waitFor } = require('../support/helpers');
 const db = require('../../db');
 const friends = require('../../friends');
 
@@ -8,19 +8,15 @@ let base;
 test.before(async () => { base = await start(); });
 test.after(stop);
 
-function waitFor(sock, ev, pred = () => true) {
-  return new Promise((resolve) => {
-    const h = (p) => { if (pred(p)) { sock.off(ev, h); resolve(p); } };
-    sock.on(ev, h);
-  });
-}
 const person = (p, id) => p.connects.people.find((x) => x.person.id === id);
 
 // b asks a (who has a background search) to connect; a accepts.
 async function connectPair(a, b) {
   await call(a.sock, 'bg-start', { hours: 3, activity: `chat test ${Math.random()}` });
+  // Listen before acting: inboxes are only pushed when they change, so a late listener can miss the push.
+  const asking = waitFor(a.sock, 'inbox', (p) => p.connects.answer.some((r) => r.person.id === b.user.id));
   await call(b.sock, 'connect-request', { accountId: a.user.id });
-  const asked = await waitFor(a.sock, 'inbox', (p) => p.connects.answer.some((r) => r.person.id === b.user.id));
+  const asked = await asking;
   await call(a.sock, 'connect-respond', { id: asked.connects.answer.find((r) => r.person.id === b.user.id).id, accept: true });
 }
 
@@ -32,20 +28,22 @@ test('only connected people can message; messages arrive live, are saved, and ge
   assert.ok((await call(b.sock, 'dm-send', { to: a.user.id, body: 'hi' })).error, 'not connected yet');
   assert.ok((await call(b.sock, 'dm-history', { with: a.user.id })).error);
 
+  const listed = waitFor(b.sock, 'inbox', (p) => person(p, a.user.id));
   await connectPair(a, b);
-  await waitFor(b.sock, 'inbox', (p) => person(p, a.user.id));
+  await listed;
   assert.ok((await call(b.sock, 'dm-send', { to: a.user.id, body: '   ' })).error, 'empty');
   assert.ok((await call(b.sock, 'dm-send', { to: a.user.id, body: 'x'.repeat(2001) })).error, 'too long');
 
   const arrived = once(a.sock, 'dm');
   const echoed = once(b.sock, 'dm');
+  const unreadInbox = waitFor(a.sock, 'inbox', (p) => person(p, b.user.id)?.unread === 1);
   const sent = await call(b.sock, 'dm-send', { to: a.user.id, body: '  Saturday chess? \n\n\n\n\n:)  ' });
   assert.strictEqual(sent.message.body, 'Saturday chess? \n\n\n:)');
   const [msg] = await Promise.all([arrived, echoed]);
   assert.strictEqual(msg.from, b.user.id);
   assert.strictEqual(msg.fromName, b.user.displayName);
 
-  const unread = await waitFor(a.sock, 'inbox', (p) => person(p, b.user.id)?.unread === 1);
+  const unread = await unreadInbox;
   assert.strictEqual(person(unread, b.user.id).last.body, 'Saturday chess? \n\n\n:)');
 
   const hist = await call(a.sock, 'dm-history', { with: b.user.id });
@@ -53,9 +51,10 @@ test('only connected people can message; messages arrive live, are saved, and ge
   assert.strictEqual(hist.more, false);
 
   const seen = once(b.sock, 'dm-read');
+  const readInbox = waitFor(a.sock, 'inbox', (p) => person(p, b.user.id)?.unread === 0);
   a.sock.emit('dm-read', { with: b.user.id });
   assert.strictEqual((await seen).by, a.user.id);
-  await waitFor(a.sock, 'inbox', (p) => person(p, b.user.id)?.unread === 0);
+  await readInbox;
 
   // Typing indicator goes to the other side.
   const typing = once(a.sock, 'dm-typing');
@@ -97,15 +96,21 @@ test('friends can message too; report includes the messages; block cuts it off',
   t.after(() => [a, b].forEach((x) => x.sock.close()));
   friends.request(a.user.id, b.user.id);
   friends.request(b.user.id, a.user.id);
+  // Wait until b is in a's inbox before blocking. Otherwise messages, report and block can all fall in one
+  // 120 ms recompute window, the inbox never changes, nothing is pushed and the wait below hangs (a flaky
+  // test found when the suite ran under mutation-testing load; docs/test-log.md).
+  const listed = waitFor(a.sock, 'inbox', (p) => person(p, b.user.id));
   assert.ok((await call(a.sock, 'dm-send', { to: b.user.id, body: 'hey friend' })).ok);
   await call(b.sock, 'dm-send', { to: a.user.id, body: 'something rude' });
+  await listed;
 
   assert.deepStrictEqual(await call(a.sock, 'report', { accountId: b.user.id, reason: 'harassment', details: 'in DMs' }), { ok: true });
   const r = db.prepare('SELECT * FROM reports WHERE reporter_id = ? AND reported_id = ?').get(a.user.id, b.user.id);
   assert.strictEqual(r.context, 'chat');
   assert.deepStrictEqual(JSON.parse(r.transcript).map((m) => m.text), ['hey friend', 'something rude']);
 
+  const gone = waitFor(a.sock, 'inbox', (p) => !person(p, b.user.id));
   assert.deepStrictEqual(await call(a.sock, 'block', { accountId: b.user.id }), { ok: true });
   assert.ok((await call(b.sock, 'dm-send', { to: a.user.id, body: 'hello?' })).error);
-  await waitFor(a.sock, 'inbox', (p) => !person(p, b.user.id));
+  await gone;
 });

@@ -61,7 +61,7 @@ Type: **F** functional (safety / correctness / liveness), **Q** measurable quali
 |---|---|---|
 | FR1, SR1 | boundary-value analysis + category partition (ch. 10–11); property-based check against an independent age calculation | the rules are numeric limits; faults cluster at boundaries (off-by-one around the 18th birthday) |
 | FR2 | category partition of input kinds; properties (symmetry, range, idempotence); offline A/B on labelled pairs with statistics | the matcher is partly ML: no exact oracle for "similar", so test laws it must obey plus statistical quality on a labelled set |
-| FR3 | pairwise combinatorial testing (ch. 11) with an independent oracle; boundary values of age bands | 10 interacting parameters (2.2 M combinations); most faults involve one or two parameters |
+| FR3 | pairwise combinatorial testing (ch. 11) with an independent oracle; boundary values of age bands | 10 interacting parameters (196,830 combinations); most faults involve one or two parameters |
 | FR5 | model-based testing of a finite state machine (ch. 14): transition coverage + random walks against an executable model | behaviour depends on history and time; a model covers sequences hand-written tests miss |
 | FR6, SR3 | decision table; boundaries of rate limits with a controllable clock (scaffolding) | conditions combine (connected × friends × blocked × self); limits are time windows |
 | FR7, SR2 | category partition of report inputs; boundary tests at 2/3 reporters and 24 h | high-priority safety rule with thresholds |

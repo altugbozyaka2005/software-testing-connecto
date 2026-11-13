@@ -1,0 +1,238 @@
+
+> connecto@1.0.0 test:coverage
+> c8 node --test "test/unit/**/*.test.js" "test/property/**/*.test.js" "test/integration/**/*.test.js"
+
+✔ register validates every field (100.232208ms)
+✔ age calculation respects birthdays (0.191083ms)
+✔ register → me → logout → login (246.33325ms)
+✔ non-JSON writes are rejected (CSRF guard) (1.259417ms)
+✔ update profile photo (38.933542ms)
+✔ sockets require a session, and logout disconnects them (96.394375ms)
+✔ background search: away card, request while offline, email, inbox, accept, call (1197.521541ms)
+✔ two background searches find each other (614.245125ms)
+✔ inviting a friend into a call: host invites join directly (and make space), members need the host (173.325541ms)
+✔ a background search can be worded differently from the live search (108.123292ms)
+✔ a background search keeps working while you search live for something else (246.391333ms)
+✔ several background searches at once, each with its own matches; edit and stop one (611.874584ms)
+✔ scheduling a meeting: propose times, pick one, reminder, cancel (611.19525ms)
+
+Interrupted while running:
+
+⚠ test/integration/chat.test.js (test/integration/chat.test.js:1:1)
+⚠ test/integration/email.test.js (test/integration/email.test.js:1:1)
+⚠ test/integration/flow.test.js (test/integration/flow.test.js:1:1)
+⚠ test/integration/friends.test.js (test/integration/friends.test.js:1:1)
+⚠ test/integration/groups.test.js (test/integration/groups.test.js:1:1)
+⚠ test/integration/instrumentation.test.js (test/integration/instrumentation.test.js:1:1)
+⚠ test/integration/prefs.test.js (test/integration/prefs.test.js:1:1)
+⚠ test/integration/requests.test.js (test/integration/requests.test.js:1:1)
+⚠ test/integration/robustness.test.js (test/integration/robustness.test.js:1:1)
+⚠ test/integration/safety.test.js (test/integration/safety.test.js:1:1)
+⚠ test/integration/semantic.test.js (test/integration/semantic.test.js:1:1)
+⚠ test/property/invariants.test.js (test/property/invariants.test.js:1:1)
+⚠ test/property/socket-fuzz.test.js (test/property/socket-fuzz.test.js:1:1)
+⚠ test/unit/auth.validation.test.js (test/unit/auth.validation.test.js:1:1)
+⚠ test/unit/background.fsm.test.js (test/unit/background.fsm.test.js:1:1)
+⚠ test/unit/chat-friends.test.js (test/unit/chat-friends.test.js:1:1)
+⚠ test/unit/matcher.partition.test.js (test/unit/matcher.partition.test.js:1:1)
+⚠ test/unit/matcher.test.js (test/unit/matcher.test.js:1:1)
+⚠ test/unit/prefs.pairwise.test.js (test/unit/prefs.pairwise.test.js:1:1)
+⚠ test/unit/safety.test.js (test/unit/safety.test.js:1:1)
+⚠ test/unit/turn-mail.test.js (test/unit/turn-mail.test.js:1:1)
+⚠ test/unit/usability-analysis.test.js (test/unit/usability-analysis.test.js:1:1)
+✔ only connected people can message; messages arrive live, are saved, and get read receipts (696.626125ms)
+✔ history pages, rate limit (250.307542ms)
+✖ test/integration/chat.test.js (1031616.384334ms)
+✔ new accounts must confirm their email before matching (231.330083ms)
+✔ signing in to an unconfirmed account sends a fresh link only if the last one is old (137.70875ms)
+✔ resend verification requires sign-in and has a cooldown (38.853375ms)
+✔ forgot → reset password (162.476166ms)
+✔ password reset disconnects open tabs (83.95775ms)
+✔ room-start carries short-lived TURN credentials (208.166041ms)
+✔ match → request → accept → room → chat → leave (548.652375ms)
+✔ two tabs of the same account never match each other (250.528708ms)
+✔ profile extras: validation, saved, and shown to matches with a shared-interest boost (319.987125ms)
+✔ friends: mutual yes after a call, presence, invites, removal (767.459792ms)
+✔ "Not now" declines quietly and blocking ends a friendship (488.469292ms)
+✔ opening a 1:1 call makes you host and lists it as a group in matching (440.078375ms)
+✔ ask to join → host lets in → newcomer connects to everyone; full rooms decline the rest (284.316ms)
+✔ decline, host hand-over, removal, and a removed person never sees the room again (298.835916ms)
+✔ start a group room from search; it disappears when you leave (368.438542ms)
+✔ blocking someone in a group removes them; a closed 2-person group ends when one leaves (134.437875ms)
+✔ a group room can be worded differently from your search, even from the activity screen (50.369917ms)
+✔ GET /metrics needs the token, and is absent when no token is configured (100.438333ms)
+✔ a full match increments the funnel counters and records recompute timings (412.205459ms)
+✔ fault injection: a handler that throws is counted, acked with an error, and the server survives (54.572208ms)
+✔ refused socket connections are counted by reason (2.297208ms)
+✔ summary statistics use nearest-rank percentiles over the most recent samples (0.758083ms)
+✔ filters are mutual, unknown details only pass "anyone", modes pick the richest shared one (1.268209ms)
+▶ over sockets
+  ✔ a filter hides people both ways, the server refuses requests that break it, and calls use the shared mode (718.704792ms)
+✔ over sockets (721.829083ms)
+✔ a sent request shows on your left and on their right; cancel and accept update both (576.42275ms)
+✔ D1: HTTP routes treat a malformed cookie as "not signed in" (401), not a server error (66.770625ms)
+✔ D1: a socket handshake with a malformed cookie is refused and the server keeps serving others (130.475459ms)
+✔ a valid session cookie next to unrelated cookies still signs you in (101.571375ms)
+✔ D6: object-valued fields in the registration body are rejected with 400, not a 500 (4.635208ms)
+✔ D6: poisoned objects in socket payloads are refused with an error ack (52.467125ms)
+✔ D10: in-call chat is limited to 15 messages per 10 seconds per person (533.71825ms)
+✔ blocking from the match list hides both people and refuses requests; unblock restores (583.117208ms)
+✔ blocking during a call ends it for both sides (99.862375ms)
+✔ reports: validation, transcript evidence, dedupe, admin review (262.023708ms)
+✔ three different reporters within 24h suspend the account automatically (652.025292ms)
+✔ admin can unsuspend (72.768542ms)
+✔ you can report the person from your last call after it ends, but not yourself (82.448375ms)
+Embeddings ready (Xenova/paraphrase-multilingual-mpnet-base-v2, 1297 ms)
+✔ the model loads (1463.728083ms)
+✔ same meaning, different words or languages, now match (98.483417ms)
+✔ unrelated activities still do not match (24.930041ms)
+✔ word matching still decides when it scores higher (typos, exact phrases) (11.364041ms)
+✔ P-MAT-1: scores are always within [0, 1] (858.820792ms)
+✔ P-MAT-2: scoring is symmetric (1303.401625ms)
+✔ P-MAT-3: any text with at least one meaningful word scores >= 0.95 against itself (558.079084ms)
+✔ P-MAT-4: case and surrounding punctuation never change the score (889.632292ms)
+✔ P-MAT-5: tokenize is idempotent and stem never lengthens a word (17.960292ms)
+✔ P-PREF-1: clean is idempotent and only ever returns allowed values (25.903292ms)
+✔ P-PREF-2: compatibility is symmetric, and nobody with no filters is ever excluded by filters (25.978292ms)
+✔ P-PREF-3: adding a filter can only shrink the set of people you fit with (monotonic) (12.315209ms)
+✔ P-AUTH-1: validation never throws, and anything it accepts satisfies every rule (SR1, FR1) (70.53175ms)
+✔ P-AUTH-2: profile validation never throws on arbitrary input (216.138416ms)
+✔ P-AUTH-3: cookie parsing never throws on any header string (D1) (470.898583ms)
+[socket] "friend-request" failed for account 1: Cannot convert object to primitive value
+[socket] "connect-request" failed for account 1: Cannot convert object to primitive value
+[socket] "connect-propose" failed for account 1: Cannot convert object to primitive value
+[socket] "dm-history" failed for account 1: Cannot convert object to primitive value
+✔ SR4 / D4: no payload sent to any socket event crashes the server (322.250542ms)
+✔ SR4: the server answers acks with an error, not silence, when a handler fails (47.063959ms)
+✔ SR4: arbitrary JSON bodies never produce a 5xx from the HTTP API (1126.703625ms)
+✔ the fuzzed event list matches the handlers registered in server.js (0.763875ms)
+✔ a fully valid registration has no errors and is normalised (2.074792ms)
+✔ BV-AUTH-1: names are 1..50 characters (0.247667ms)
+✔ names: letters of any script plus apostrophe, hyphen, dot and space; must start with a letter (1.291583ms)
+✔ BV-AUTH-2: passwords are 8..128 characters with a letter and a digit (0.145583ms)
+✔ BV-AUTH-3: email needs a 2+ letter TLD and at most 254 characters (0.155125ms)
+✔ BV-AUTH-4: you must be 18 today (not tomorrow) and at most 120 (0.131667ms)
+✔ dates must be real calendar dates in YYYY-MM-DD (0.078ms)
+✔ age on a birthday boundary, including a 29 February birthday (1.110042ms)
+✔ gender is optional but must come from the list; terms must be exactly true (1.039125ms)
+✔ BV-AUTH-5: avatars are png/jpeg/webp/gif data URLs of at most 300 KB (0.508292ms)
+✔ BV-AUTH-6: profile limits: bio 200, interests 5 (deduped, #-stripped, 24 chars), languages 5 (0.377542ms)
+✔ profile text is cleaned of control characters and cut to length; unknown values refused (9.962917ms)
+✔ cookies: every cookie parsed, malformed values skipped (D1) (0.161875ms)
+✔ strangers see first name and last initial only (0.043958ms)
+✔ T1: request creates a pending request from a to b (1.166791ms)
+✔ T2: asking again while pending is idempotent (0.524ms)
+✔ T3: b asking a back turns a pending request into a mutual yes (4.909708ms)
+✔ T4/T5: the recipient accepts or declines; a declined request disappears (1.957959ms)
+✔ T6: a may ask again after being declined (a new pending request) (0.64925ms)
+✔ T7: the sender can cancel a pending request (0.759ms)
+✔ T8: settle turns a pending or accepted request into history (done) (0.517584ms)
+✔ T9: forget (block) erases everything between two people, including history (0.405625ms)
+✔ T10 (boundary): a pending request expires exactly 7 days after it was sent (0.550083ms)
+✔ T11 (boundary): an accepted connection without a meeting lapses after 48 hours (0.521584ms)
+✔ T12 (boundary): a scheduled meeting keeps the connection open until 2 hours after it starts (0.561041ms)
+✔ I1-I5: invalid transitions are refused and change nothing (0.443167ms)
+✔ D5 (boundary): at most 20 new requests a day, and cancelling does not reset the count (1.953292ms)
+✔ BV-SLOT: proposed times must be more than 5 minutes and less than 30 days ahead, at most 3 (0.567291ms)
+✔ scheduling: only the other person can pick, only a proposed and future time, and unschedule resets (0.515291ms)
+✔ reminders fire once, within 10 minutes before a meeting (0.388166ms)
+✔ random command sequences behave like the model (fast-check, 200 walks) (894.377958ms)
+✔ TS-DM-1: text is trimmed, CRLF normalised, and runs of 4+ newlines collapsed to 3 (0.936875ms)
+✔ TS-DM-2 [error]: empty, whitespace-only and non-string messages are refused (0.181ms)
+✔ BV-DM-1: messages may be 2000 characters, not 2001 (6.955417ms)
+✔ DT-DM: only connected or befriended, unblocked, different people can message (1.117ms)
+✔ BV-DM-2: at most 15 messages per 10 seconds; the 16th waits for the window to pass (2.081625ms)
+✔ BV-DM-3: at most 1000 messages per 24 hours (6.418875ms)
+✔ history pages 50 at a time, oldest first, with a "more" flag; markRead and summaries agree (1.011334ms)
+✔ disconnect removes the connection both ways but keeps messages for moderation (0.228167ms)
+✔ friends: a request becomes a friendship only when both say yes; decline and remove are quiet (0.556708ms)
+✔ BV-STEM-1: "ies" is stripped only from words longer than 5 letters (0.727209ms)
+✔ BV-STEM-2: "ing" is stripped only from words longer than 4 letters (0.087041ms)
+✔ BV-STEM-3: "ed" is stripped only from words longer than 4 letters (0.056916ms)
+✔ BV-STEM-4: "es" is stripped only from words longer than 3 letters (0.055416ms)
+✔ BV-STEM-5: a final "s" is stripped from words longer than 3 letters, but not "ss" (0.158209ms)
+✔ BV-STEM-6: a doubled final consonant is undoubled ("running" -> "run"), except l, s, z (0.088167ms)
+✔ TS-MAT-1: tokenize lowercases, drops punctuation, apostrophes and stopwords (1.69625ms)
+✔ TS-MAT-2 [single]: text with nothing meaningful never matches anything (6.619792ms)
+✔ TS-MAT-3: identical wording (any case/punctuation) scores at least 0.95 (3.52275ms)
+✔ TS-MAT-4: same category, different words, scores at least 0.3 + 0.4 x category overlap (1.190084ms)
+✔ TS-MAT-5: different categories with no shared words fall below the match threshold (5.672709ms)
+✔ TS-MAT-6: a one-letter typo in a long word still lands in the right category (1.67075ms)
+✔ TS-MAT-7: very long input is handled and still matches its topic (1.059375ms)
+✔ D3 / TS-MAT-8: identical wording in a non-Latin script scores at least 0.95 (3.865917ms)
+✔ D3 / TS-MAT-9: letters with diacritics are kept, not split into fragments (0.883167ms)
+✔ score is the better of the word score and the meaning score (1.082875ms)
+✔ identical prompts score near 1 (4.845583ms)
+✔ different phrasings of the same activity match well (2.729125ms)
+✔ tolerates typos (0.863084ms)
+✔ unrelated activities rank below related ones (3.267084ms)
+✔ empty prompts do not match (0.482083ms)
+✔ the generated suite covers every pair of parameter values (1.992083ms)
+✔ pairwise: prefs.fits and prefs.compatible agree with the oracle on every generated case (0.676292ms)
+✔ BV-AGE: each age band includes both of its end points and excludes the neighbours (0.146667ms)
+✔ callMode picks the richest shared mode (video > voice > chat) (0.099167ms)
+✔ clean: unknown values dropped, duplicates removed, list caps (20 countries, 10 languages), modes ordered (0.325959ms)
+✔ parse falls back to defaults for missing or corrupt JSON; activeCount counts narrowing filters (0.202458ms)
+✔ facts are read from an account row; languages capped at 5 and corrupt JSON ignored (1.400125ms)
+✔ TS-REP-1: every listed reason is accepted (2.374292ms)
+✔ D2 / TS-REP-2 [error]: unknown, missing and non-string reasons are refused (5.599375ms)
+✔ D2 / TS-REP-3 [error]: inherited object keys are not valid reasons (0.357ms)
+✔ TS-REP-4 [error]: you cannot report yourself (0.109417ms)
+✔ TS-REP-5: details are whitespace-collapsed, trimmed and cut at 500 characters (0.574458ms)
+✔ TS-REP-6: a second open report about the same person updates the first (one per pair) (0.278417ms)
+✔ TS-REP-7: the transcript keeps only the last 100 messages (0.302458ms)
+✔ TS-REP-8 (boundary): the 10th report in an hour is accepted, the 11th refused, and the limit resets after an hour (1.206ms)
+✔ TS-REP-9 (boundary): reports from 2 people do not suspend; the 3rd distinct person within 24h does (0.663834ms)
+✔ TS-REP-10: the same person reporting twice counts once towards auto-suspension (0.367125ms)
+✔ TS-REP-11 (boundary): reports older than 24 hours do not count towards auto-suspension (0.414042ms)
+✔ TS-REP-12: suspension deletes the account's sessions and calls the realtime handler once (1.238166ms)
+✔ blocks are symmetric, self-blocks are ignored, and unblocking keeps a reverse block in force (0.436333ms)
+✔ admins are verified, unsuspended accounts listed in ADMIN_EMAILS (case-insensitive) (0.151583ms)
+✔ without a TURN secret or host, only public STUN servers are handed out (0.670583ms)
+✔ TURN credentials: "<expiry>:<account>" signed with HMAC-SHA1 of the shared secret, valid 12 hours (0.993917ms)
+✔ emails: user-supplied text is HTML-escaped in the HTML part but readable in the text part (0.218125ms)
+✔ password reset and admin report emails carry the right subject and link (0.201541ms)
+✔ connect notices: one subject per kind, times shown in the recipient's time zone (or UTC) (12.95175ms)
+✔ SUS scoring: best, worst, neutral and invalid answer sets (0.938875ms)
+✔ Adjusted Wald interval for completion rates (hand-computed values) (0.178209ms)
+✔ summary statistics (0.257541ms)
+✔ analyse: completion counts one assist as success, two as failure; SUS once per participant (0.506083ms)
+ℹ tests 163
+ℹ suites 1
+ℹ pass 162
+ℹ fail 0
+ℹ cancelled 1
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1031623.616042
+
+✖ failing tests:
+
+test at test/integration/chat.test.js:1:1
+✖ test/integration/chat.test.js (1031616.384334ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+---------------|---------|----------|---------|---------|-------------------------------------------
+File           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                         
+---------------|---------|----------|---------|---------|-------------------------------------------
+All files      |   94.19 |    87.76 |   96.41 |   94.19 |                                           
+ auth.js       |    96.1 |    92.15 |   93.93 |    96.1 | ...21-123,323-324,382-388,407-408,492-494 
+ background.js |   92.13 |    96.29 |   96.29 |   92.13 | 41-49,167-178                             
+ chat.js       |     100 |    96.07 |     100 |     100 | 21,24                                     
+ db.js         |   83.56 |    44.44 |     100 |   83.56 | 137-155,160-175                           
+ embeddings.js |   96.61 |    95.45 |     100 |   96.61 | 27-28                                     
+ friends.js    |     100 |    95.65 |     100 |     100 | 13                                        
+ mail.js       |   96.03 |    80.64 |   88.88 |   96.03 | 37-40,42                                  
+ matcher.js    |     100 |      100 |     100 |     100 |                                           
+ metrics.js    |   93.67 |      100 |   88.88 |   93.67 | 71-75                                     
+ prefs.js      |     100 |      100 |     100 |     100 |                                           
+ safety.js     |   98.74 |    83.33 |     100 |   98.74 | 208,214-215                               
+ server.js     |   92.81 |    82.44 |   96.29 |   92.81 | ...407,1423-1426,1476-1480,1491,1499-1514 
+ turn.js       |     100 |      100 |     100 |     100 |                                           
+---------------|---------|----------|---------|---------|-------------------------------------------
+
+=============================== Coverage summary ===============================
+Statements   : 94.19% ( 3247/3447 )
+Branches     : 87.76% ( 1262/1438 )
+Functions    : 96.41% ( 188/195 )
+Lines        : 94.19% ( 3247/3447 )
+================================================================================

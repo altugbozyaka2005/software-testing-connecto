@@ -1,18 +1,12 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { start, stop, signedInSocket, once, call, matchUp } = require('../support/helpers');
+const { start, stop, signedInSocket, once, call, matchUp, waitFor } = require('../support/helpers');
 
 let base;
 test.before(async () => { base = await start(); });
 test.after(stop);
 
 // Next event `ev` on `sock` whose payload satisfies `pred`.
-function waitFor(sock, ev, pred = () => true) {
-  return new Promise((resolve) => {
-    const h = (p) => { if (pred(p)) { sock.off(ev, h); resolve(p); } };
-    sock.on(ev, h);
-  });
-}
 const groupIn = (matches, roomId) => matches.groups.find((g) => g.id === roomId);
 
 const NAMES = ['Ada', 'Bora', 'Cem', 'Deniz', 'Ece', 'Firat'];

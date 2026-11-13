@@ -70,12 +70,32 @@ async function signedInSocket(base, overrides) {
   const reg = await request(base, 'POST', '/api/auth/register', newUser(overrides));
   if (reg.status !== 201) throw new Error(JSON.stringify(reg.body));
   await request(base, 'POST', '/api/auth/verify-email', { token: lastEmail(reg.body.user.email, 'verify').token });
-  const sock = Client(base, { forceNew: true, extraHeaders: { cookie: reg.cookie } });
+  const sock = remember(Client(base, { forceNew: true, extraHeaders: { cookie: reg.cookie } }));
   await new Promise((r, j) => { sock.once('connect', r); sock.once('connect_error', j); });
   return { sock, cookie: reg.cookie, user: reg.body.user };
 }
 
 const once = (sock, ev) => new Promise((r) => sock.once(ev, r));
+
+// Keeps the latest payload of every event a socket receives. The server pushes 'inbox', 'friends' and
+// 'matches' only when they change, so a test that starts listening just after the push would wait forever:
+// a race that only showed under heavy CPU load (test/integration/chat.test.js hung during a mutation run).
+function remember(sock) {
+  sock.latest = {};
+  sock.onAny((ev, payload) => { sock.latest[ev] = payload; });
+  return sock;
+}
+
+// Resolves with the next payload of `ev` that satisfies `pred`. With { latest: true } the payload already
+// received counts too. That is opt-in: by default a stale payload must not satisfy a wait, or a test waiting
+// for "no requests" after a cancel could pass on the state from before the request was sent.
+function waitFor(sock, ev, pred = () => true, { latest = false } = {}) {
+  if (latest && sock.latest && ev in sock.latest && pred(sock.latest[ev])) return Promise.resolve(sock.latest[ev]);
+  return new Promise((resolve) => {
+    const h = (p) => { if (pred(p)) { sock.off(ev, h); resolve(p); } };
+    sock.on(ev, h);
+  });
+}
 const call = (sock, ev, p) => new Promise((r) => sock.emit(ev, p, r));
 
 // Puts two signed-in sockets in a room together (b requests, a accepts).
@@ -90,4 +110,4 @@ async function matchUp(a, b, activity) {
   return rooms;
 }
 
-module.exports = { crashes, start, stop, request, newUser, signedInSocket, lastEmail, once, call, matchUp, Client };
+module.exports = { crashes, remember, waitFor, start, stop, request, newUser, signedInSocket, lastEmail, once, call, matchUp, Client };

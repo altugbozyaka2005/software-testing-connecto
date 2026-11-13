@@ -1,18 +1,12 @@
 // The matches screen's two sides: requests you sent, and requests sent to you.
 const test = require('node:test');
 const assert = require('node:assert');
-const { start, stop, signedInSocket, once, call } = require('../support/helpers');
+const { start, stop, signedInSocket, once, call, waitFor } = require('../support/helpers');
 
 let base;
 test.before(async () => { base = await start(); });
 test.after(stop);
 
-function waitFor(sock, ev, pred = () => true) {
-  return new Promise((resolve) => {
-    const h = (p) => { if (pred(p)) { sock.off(ev, h); resolve(p); } };
-    sock.on(ev, h);
-  });
-}
 
 test('a sent request shows on your left and on their right; cancel and accept update both', async (t) => {
   const a = await signedInSocket(base, { firstName: 'Bora' });

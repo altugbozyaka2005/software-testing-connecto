@@ -2,7 +2,7 @@
 const test = require('node:test');
 const assert = require('node:assert');
 const prefs = require('../../prefs');
-const { start, stop, signedInSocket, once, call } = require('../support/helpers');
+const { start, stop, signedInSocket, once, call, waitFor } = require('../support/helpers');
 
 const side = (p, f) => ({ prefs: prefs.clean(p), facts: { gender: null, age: 30, country: null, languages: [], ...f } });
 
@@ -38,12 +38,6 @@ test.describe('over sockets', () => {
   test.before(async () => { base = await start(); });
   test.after(stop);
 
-  function waitFor(sock, ev, pred = () => true) {
-    return new Promise((resolve) => {
-      const h = (p) => { if (pred(p)) { sock.off(ev, h); resolve(p); } };
-      sock.on(ev, h);
-    });
-  }
   const patchMe = (x, body) => fetch(`${base}/api/auth/me`, { method: 'PATCH', headers: { 'Content-Type': 'application/json', cookie: x.cookie }, body: JSON.stringify(body) }).then((r) => r.json());
 
   test('a filter hides people both ways, the server refuses requests that break it, and calls use the shared mode', async (t) => {

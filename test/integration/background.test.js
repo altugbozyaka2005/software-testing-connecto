@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert');
-const { start, stop, signedInSocket, lastEmail, once, call, matchUp, Client } = require('../support/helpers');
+const { start, stop, signedInSocket, lastEmail, once, call, matchUp, Client, waitFor } = require('../support/helpers');
 const db = require('../../db');
 const { sendMeetingReminders } = require('../../server');
 const { outbox } = require('../../mail');
@@ -9,12 +9,6 @@ let base;
 test.before(async () => { base = await start(); });
 test.after(stop);
 
-function waitFor(sock, ev, pred = () => true) {
-  return new Promise((resolve) => {
-    const h = (p) => { if (pred(p)) { sock.off(ev, h); resolve(p); } };
-    sock.on(ev, h);
-  });
-}
 const reconnect = async (cookie) => {
   const s = Client(base, { forceNew: true, extraHeaders: { cookie } });
   await once(s, 'connect');

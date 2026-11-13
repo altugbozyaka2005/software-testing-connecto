@@ -32,6 +32,7 @@ usability observations H1–H3, H5 in [acceptance/heuristic-evaluation.md](accep
 | My expected values were wrong (not the code) | TS-REP-1 reported one person 7 times → correctly auto-suspended; `workout` also triggers *working*; Adjusted Wald hand value; synthetic perf users named `User1` (digits are invalid names, correctly refused) | fixed the oracles, noted in commit messages |
 | Fuzz generators too narrow | D6 found by a property test, not by the fuzzers | generators now include `{toString:{}}`-style objects |
 | `window.scrollTo` is not what a user does | ST-5 first failed on desktop for a clipped panel | oracle changed to a real sideways wheel gesture |
+| A flaky integration test (existing `chat.test.js`, "block cuts it off") hung the coverage run under mutation-testing load | it waited for b to *disappear* from a's inbox, but if messages, report and block fell within one 120 ms recompute window the inbox never changed and was never pushed | wait for b to *appear* first; waiters registered before the action; `--test-timeout=60000` on every test script so a hang fails instead of blocking CI; whole suite re-run under load: 163/163 (`reports/test-runs/under-load-run.txt`) |
 | Accessibility results lost on failure | Playwright restarts the worker after a failure, losing in-memory results | each screen's result written to disk immediately |
 
 ## Test runs (13 Nov 2026, Node 26.10, macOS arm64; CI uses Node 24)

@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+% Course template (software-testing-portfolio-template.tex): same margins, A4, 11pt; sub-criteria kept.
+\usepackage[english]{babel}
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\setlist{nosep,leftmargin=*}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\newcommand{\R}{https://github.com/altugbozyaka2005/software-testing-connecto/blob/main/}
+\newcommand{\f}[2]{\href{\R#1}{\texttt{#2}}}           % link to a file in the repo
+\newcommand{\lo}[2]{\par\smallskip{\color{blue}\textbf{LO#1. #2}}\par}
+\newcommand{\sub}[1]{\textbf{#1.}~}
+\title{\vspace{-1.6cm}Software Testing 2026/7 Portfolio: Connecto\vspace{-0.4cm}}
+\author{[Name, UUN]}
+\date{\vspace{-0.6cm}}
+\begin{document}
+\maketitle
+
+\section*{Outline of the software being tested}
+\textbf{Connecto} (Node.js, Express, Socket.IO, SQLite, WebRTC, a local multilingual embedding model) asks ``What are you doing right
+now?'', matches people doing similar things in real time (word + meaning similarity, mutual gender/age/country/language filters)
+and puts them in a video/voice/chat room when a request is accepted; it also has background searches with scheduling,
+direct messages, friends, group rooms, reporting/blocking with auto-suspension and an admin review. About 3{,}400 lines of
+server code and 5{,}100 of client code. Repo: \url{https://github.com/altugbozyaka2005/software-testing-connecto};
+start at \f{README.md}{README.md} $\rightarrow$ \f{docs}{docs/}. The 51 tests that existed (integration only) were the starting point;
+all testing work is from 12 Nov 2026 onwards in the git history.
+
+\lo{1}{Analyze requirements to determine appropriate testing strategies [20\%]}
+\sub{1.1 Range of requirements} \f{docs/requirements.md}{requirements.md} lists 20 requirements from 6 stakeholders: functional
+safety/correctness/liveness (FR1--FR8, e.g.\ adults only, mutual filters, return to matching after a call), security/robustness
+(SR1--SR6, e.g.\ \emph{no client input can stop the server}), privacy (PR1), measurable quality attributes (QR1 latency p95
+$\le$ 1\,s at 100 searchers, QR2 capacity envelope, QR3 matching accuracy $\ge$ 0.85), qualitative ones (QA-ACC1 WCAG 2.1 AA,
+QA-U1 usability with click/time targets) and 4 user stories with acceptance criteria.
+\sub{1.2 Levels} Each requirement is placed at the level where it is first observable (table column ``Level''): rules in small
+modules at unit level (\texttt{matcher}, \texttt{prefs}, validators, the request state machine), composition over sockets at
+integration level, and latency, privacy on screen, accessibility and usability only at system level.
+\sub{1.3 Test approach} One approach per requirement chosen for its structure: boundaries for numeric rules (age 18, rate limits),
+pairwise for 10 interacting filter parameters, an FSM model for history-dependent requests, fuzzing for an unbounded hostile
+input space, statistics on labelled pairs for the ML matcher (no exact oracle), load tests with instrumentation, axe and
+keystroke-level modelling for usability (table ``Test approach per requirement and why'').
+\sub{1.4 Appropriateness} The same document states the limits: matching labels are one person's judgement; the load profile is
+synthetic (no production data); WebRTC is tested with fake devices on one machine, not through TURN; automated usability only
+\emph{verifies} and real users are needed to validate; no penetration testing.
+
+\lo{2}{Design and implement comprehensive test plans with instrumented code [20\%]}
+\sub{2.1 Construction of the test plan} \f{docs/test-plan.md}{test-plan.md}: a DevOps/CI lifecycle on top of the existing
+``test with each increment'' practice (each feature commit carried its integration test), with what runs at commit, pipeline,
+release and operation; priorities by risk with $\ge$2 independent approaches for every high-priority requirement; risks and
+mitigations; entry/exit criteria. TDD was used for every defect: a \texttt{test:\,\ldots (red)} commit, then a separate \texttt{fix:} commit.
+The plan evolved: D6 showed the fuzz generators were too narrow, D9 only appeared because usability metrics also ran on a phone.
+\sub{2.2 Evaluation of the plan} Section 7 names omissions (group rooms and Connects UI not tested in browsers, no migration test
+from an old database, no security scanning) and vulnerabilities (QR1 rests on a synthetic profile, QR3 on one labeller).
+\sub{2.3 Instrumentation and scaffolding} \f{metrics.js}{metrics.js} + token-guarded \texttt{GET /metrics}: counters per socket event,
+handler errors, the request funnel, refused connections; recompute-time percentiles; event-loop delay. Scaffolding
+(\f{test/support}{test/support/}): in-memory DB and mail, a controllable clock for 7-day/48-h/10-s windows, a self-checked pairwise
+generator, an executable FSM model, a separate-process server that reads email links from its console (no test-only routes),
+two browsers with fake camera/mic, a synthetic operational profile, and a \emph{crash oracle}.
+\sub{2.4 Evaluation of the instrumentation} The instruments are tested themselves (\f{test/integration/instrumentation.test.js}{instrumentation.test.js},
+incl.\ fault injection into \texttt{chat.send}). The crash oracle exists because node:test turned server crashes into warnings, so
+the first fuzz run \emph{passed} while 39 handlers threw. Still missing: per-arm counters for the online A/B, memory growth over
+time (in-memory maps), client-side timing of what users actually wait for.
+
+\lo{3}{Apply a wide variety of testing techniques and compute test coverage and yield according to a variety of criteria [20\%]}
+\sub{3.1 Range of techniques} All planned techniques were implemented: category partition (\f{docs/test-specs}{test-specs/}),
+boundary values, pairwise with an independent oracle (32 cases instead of 196{,}830), decision table, model-based FSM testing with
+transition coverage plus 200 random walks against a model, property-based testing (fast-check), fuzzing of all 39 socket events
+and 8 HTTP routes, fault injection, structural coverage, mutation testing, load/stress, offline A/B, browser system tests with real
+WebRTC calls, executable user stories, axe audits and KLM. Levels: unit, property, integration, system, acceptance.
+\sub{3.2 Adequacy criteria} Statement/branch coverage as a floor (lines $\ge$90\%, branches $\ge$80\%, enforced in CI); transition
+coverage of the FSM; all-pairs for filters; every boundary on both sides; mutation score for assertion strength; for the matcher,
+accuracy with confidence intervals because coverage says nothing about an ML component.
+\sub{3.3 Results} \f{docs/test-log.md}{test-log.md}: 10 defects, each with red and green evidence. Two critical ones:
+one WebSocket handshake with a malformed cookie (D1), or one \texttt{null} socket payload from any user (D4), crashed the whole
+server. Others: report-reason validation bypass (D2), non-Latin text scoring 0 (D3), request-limit bypass (D5), 500 on
+\texttt{\{"toString":\{\}\}} (D6), page scrolling sideways (D7), 22 WCAG violations (D8), call screen too wide on phones blocking
+reporting (D9), unthrottled in-call chat (D10). Final: 163 node tests, 17 browser tests, all passing.
+\sub{3.4 Evaluation of the results} Coverage rose from 93.4/79.3\% to 94.7/88.2\% (lines/branches). Defects were found at every level
+(unit 4, integration 2, system 1, acceptance 2, review 1), which supports using all of them; most severe ones came from robustness
+testing that the existing tests (all happy-path) could not find. Mutation score: \textbf{MUTSCORE} (\f{reports/mutation/mutation.html}{mutation.html}).
+
+\lo{4}{Evaluate the limitations of a given testing process, using statistical methods where appropriate, and summarise outcomes [20\%]}
+\sub{4.1 Gaps and omissions} \f{docs/evaluation.md}{evaluation.md} \S1: untested in browsers (group rooms, Connects, admin page),
+no real-network WebRTC, no users in the usability study yet, single labeller, \texttt{server.js} out of mutation scope, no security scanning.
+\sub{4.2 Targets} \S2 justifies each target from risk: coverage floors, mutation $\ge$70\% overall and $\ge$80\% for safety modules, QR1--3,
+zero serious WCAG violations, KLM task limits, and a robustness target stated as a failure probability.
+\sub{4.3 Achieved vs target} \S3: QR1 met to 800 searchers (p95 251\,ms, bootstrap CI); QA-ACC1 and QA-U1 (automated part) met;
+coverage met; MUTCOMPARE. QR3 \emph{not} met: the A/B shows B beats the word-only fallback (exact McNemar $p=0.00015$, accuracy
+0.74 vs 0.57) but specificity is only 0.47. With 0 failures in FUZZN fuzzed messages, the rule of three bounds the per-message crash
+probability below FUZZBOUND (95\%), for this (non-operational) input distribution.
+\sub{4.4 What is needed} \S4: for QR3, remove generic verbs from the category floor (candidate C: 0.82, not yet significant,
+$p=0.057$) and a larger multi-labeller set with a hold-out split; for mutation, the listed surviving mutants; real-user study
+(protocol ready); production metrics for a real operational profile.
+
+\lo{5}{Conduct reviews and inspections and design and implement automated testing processes [20\%]}
+\sub{5.1 Review} \f{docs/code-review.md}{code-review.md}: checklist inspection (lecture checklist + untrusted input, abuse limits,
+privacy, side effects, resources) of the riskiest modules; 14 issues with ODC type and severity. Review found D10 (then a failing
+test), traced D4 and D6 to whole classes of call sites, and found issues no test exercised (R8--R14).
+\sub{5.2 CI pipeline} \f{.github/workflows/ci.yml}{ci.yml} and \f{.gitlab-ci.yml}{.gitlab-ci.yml}: static $\rightarrow$ test (with coverage gates)
+$\rightarrow$ system (browsers) $\rightarrow$ mutation (nightly) and perf/A-B (weekly); design rationale in \f{docs/ci.md}{ci.md}.
+\sub{5.3 Automated testing} Everything except the user study and review runs in the pipeline; \texttt{ci.md} maps each kind of issue
+(D1--D10 as examples) to the job that would catch it.
+\sub{5.4 Pipeline functions} The test stage run in a clean \texttt{node:24} container from \texttt{git archive}: 163/163, coverage reports
+produced (\f{reports/test-runs/ci-local-docker-node24.txt}{log}); every red commit is a pipeline failure by construction.
+GITHUBRUN
+\end{document}

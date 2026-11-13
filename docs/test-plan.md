@@ -49,7 +49,7 @@ independent approaches** (redundancy), and are pushed **early** (unit level) whe
 | Crash oracle | `helpers.js` `crashes[]` + `stop()` | any uncaught server exception fails the test file | node:test turned crashes into warnings, hiding D4 (see test-log) |
 | Controllable clock | `db-fixture.js` `atTime()` | 7-day / 48 h / 24 h / 10 s boundaries without waiting | every time window has an exact boundary test |
 | Direct account fixture | `db-fixture.js` `makeUser()` | unit tests of DB modules without HTTP | separates unit from integration level |
-| Pairwise generator + oracle | `test/support/pairwise.js` (self-checked by `missingPairs`) | 2.2 M preference combinations in < 60 cases | a tool's own oracle: the generated suite is checked to cover all pairs |
+| Pairwise generator + oracle | `test/support/pairwise.js` (self-checked by `missingPairs`) | 196,830 preference combinations in 32 cases | a tool's own oracle: the generated suite is checked to cover all pairs |
 | Executable FSM model | `test/unit/background.fsm.test.js` `model()` | random command sequences vs. the implementation | model-based testing (ch. 14) |
 | Fuzz generators | `test/property/socket-fuzz.test.js` | arbitrary payloads to all 39 socket events and 8 HTTP routes | the 39-event list is itself checked against `server.js` |
 | Separate-process server + email link reader | `test/support/server-process.js` | black-box system/acceptance/perf tests with no test-only routes in the app | keeps the product free of test backdoors |
