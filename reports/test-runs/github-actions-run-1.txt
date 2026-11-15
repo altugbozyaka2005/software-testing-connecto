@@ -1,0 +1,2347 @@
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push less than a minute ago
+
+JOBS
+* static (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push less than a minute ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* test (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  * Unit, property and integration tests with coverage thresholds
+  * Run actions/upload-artifact@v4
+  * Post Run actions/cache@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 1 minute ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* test (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  * Post Run actions/cache@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 1 minute ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* system (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Run npx playwright install --with-deps chromium
+  * System, acceptance, accessibility and usability tests (desktop + phone)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 2 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* system (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  * System, acceptance, accessibility and usability tests (desktop + phone)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 3 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* system (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  * System, acceptance, accessibility and usability tests (desktop + phone)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 3 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* system (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 4 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 4 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 5 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 5 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 6 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 6 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 7 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 7 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 8 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 8 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 9 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 9 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 10 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 10 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 11 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 11 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 12 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 13 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 13 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 14 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 14 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 15 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 15 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 16 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 31 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 37 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 37 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 39 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 41 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 42 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+Refreshing run status every 30 seconds. Press Ctrl+C to quit.
+
+* main CI · 43352903322
+Triggered via push about 46 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+* mutation (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  * Mutation testing (fails below thresholds.break in stryker.config.json)
+  * Run actions/upload-artifact@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+
+X main CI · 43352903322
+Triggered via push about 47 minutes ago
+
+JOBS
+✓ static in 22s (ID 131647978325)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npm run lint
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ test in 1m5s (ID 131648129405)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run actions/cache@v4
+  ✓ Run test -d models/Xenova || node scripts/fetch-model.js
+  ✓ Unit, property and integration tests with coverage thresholds
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/cache@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ system in 2m0s (ID 131648546227)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  ✓ Run npx playwright install --with-deps chromium
+  ✓ System, acceptance, accessibility and usability tests (desktop + phone)
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+X mutation in 45m17s (ID 131648546235)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run npm ci
+  X Mutation testing (fails below thresholds.break in stryker.config.json)
+  ✓ Run actions/upload-artifact@v4
+  - Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+- perf in 0s (ID 131648547904)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+static: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+static: .github#1
+
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+test: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+test: .github#1
+

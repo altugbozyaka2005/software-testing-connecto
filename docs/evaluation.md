@@ -36,10 +36,10 @@ against, and what it would take to reach them. Numbers are from 13 Nov 2026 runs
 
 | Measure | Target | Achieved | Met? |
 |---|---|---|---|
-| Line / branch coverage | 90 / 80 | 94.74 / 88.22 (from 93.44 / 79.34 at the start) | yes |
-| Branch coverage of safety modules | ≥ 90 | COVSAFETY | COVSAFETYMET |
-| Mutation score overall | ≥ 70% | MUTOVERALL | MUTMET |
-| Mutation score safety / prefs / matcher | ≥ 80% | MUTMODULES | MUTMODMET |
+| Line / branch coverage | 90 / 80 | 95.01 / 89.69 (from 93.44 / 79.34 at the start) | yes |
+| Branch coverage of safety modules | ≥ 90 | safety 97.6, background 97.6, chat 96.1, auth 93.9 (safety.js was 83.3 before `admin.test.js`) | yes |
+| Mutation score overall | ≥ 70% | run 1: 56.8% → run 2: **75.3%** (same 1,994 mutants); without the matcher's vocabulary tables 65.8% → **87.4%** [95% Wilson 85.8, 88.9] | yes (run 2) |
+| Mutation score safety / prefs / matcher | ≥ 80% | prefs 96.2%, matcher logic 93.2% (42.9% incl. vocabulary data), safety **79.0%** | prefs, matcher yes; safety just below |
 | Robustness | 0 crashes | 0 crashes in 1,180 fuzzed messages to the server (after D1/D4/D6); 95% upper bound 0.25% per message | yes, but for the fuzz distribution, not real traffic |
 | QR1 | p95 ≤ 1 s @ 100 | 131 ms (95% bootstrap CI 130–132) | yes |
 | QR2 | QR1 holds @ 400 | holds @ 800: p95 251 ms; recompute p95 26 → 188 ms from 100 → 800 (super-linear, R11) | yes; edge not reached |
@@ -51,7 +51,29 @@ against, and what it would take to reach them. Numbers are from 13 Nov 2026 runs
 Why the variations: QR3 fails because of false matches from the word scorer's category floor (R7), not the model
 (specificity 0.47 for both variants); the threshold cannot fix it (sweep in `reports/ab/matcher-ab.md`). The latency
 targets are met by a wide margin partly because the 120 ms debounce dominates and the test machine is faster than
-production. MUTWHY
+production.
+
+**Mutation testing, run 1 → run 2** (`reports/mutation/run1/` → `reports/mutation/`). Run 1 scored 56.8% although
+line coverage was 94.7%: the code ran, but the assertions would not have noticed many changes. The survivors were
+analysed (`reports/mutation/run1/mutation.json`) and fell into four groups:
+1. **Vocabulary data** (267 of matcher's 306): deleting one trigger word such as `'chess'` from `CATEGORIES` is not
+   noticed. These test the word list, not the logic; the list's adequacy is measured by the A/B, so they are reported
+   separately rather than killed with one tautological test per word.
+2. **Real test weaknesses:** time windows tested on one side only (a 24 h window shrunk to 86 s survived because the
+   test only checked *after* 24 h); score assertions that were thresholds only (`>= 0.5`), so the blend weights and
+   even turning cosine's `/` into `*` survived behind the `min(1, …)` clamp; a **tautological oracle**
+   (`parse(null)` compared with `{ ...DEFAULTS }`, the module against itself); unanchored-regex cases never tried
+   (`a@b.cc@d`, `x1995-06-15`); normalised values never asserted (blank bio → `null`).
+3. **Code only integration tests reached** (no coverage in the unit suites): background-search start/stop, token and
+   session lifetimes, the admin router.
+4. **Equivalent mutants** that no test can kill, e.g. the stemmer's `ies → i` rule always gives the same result as the
+   next `es` rule ("studies" → "studi" either way): dead code (added to the review as an observation), plus
+   performance-only `break`s and short-circuit operators with identical results.
+
+Group 2 and 3 were addressed by `test/unit/mutation-driven.test.js` (MK-1…24: exact hand-computed scores, both sides of
+every window, literal oracles, anchors), background-search unit tests and `test/integration/admin.test.js`.
+safety.js stays at 79.0%: most of its remaining survivors are the admin-email wording and `?.` guards on maps that
+are always initialised (near-equivalent).
 
 ## 4. What would be needed to reach or exceed the targets (4.4)
 
@@ -60,7 +82,10 @@ production. MUTWHY
   (optimistic) and not significantly better than B (p = 0.057). To decide properly: ~300 pairs from 3 labellers
   (κ ≥ 0.6), a held-out half for the final number, then the online A/B in [ab-testing.md](ab-testing.md)
   (1,377 requests per arm to detect 30% → 35% acceptance).
-- **Mutation:** MUTNEEDED
+- **Mutation:** safety.js to ≥ 80% needs assertions on the admin email body and a decision on the `?.` guards
+  (remove them if they can never be undefined, which also removes the equivalent mutants); extend the scope to
+  `server.js` with the integration suite (≈ 2 s per mutant, a nightly job of a few hours) or split server.js so its
+  logic can be unit tested (R14). Mutation testing in CI takes ~80 min, so it runs nightly/on main, not per push.
 - **Usability validation:** run the study (13 participants, ~1 h each, ~15 h including analysis); fix H1 (stale toasts over the call controls) first.
 - **Coverage of the gaps in §1:** browser tests for group rooms and Connects (~4 h), migration test (~1 h), cleanup jobs under a fake clock (~1 h),
   Safari/Firefox projects (~1 h plus fixing what they find).

@@ -77,7 +77,7 @@ accuracy with confidence intervals because coverage says nothing about an ML com
 one WebSocket handshake with a malformed cookie (D1), or one \texttt{null} socket payload from any user (D4), crashed the whole
 server. Others: report-reason validation bypass (D2), non-Latin text scoring 0 (D3), request-limit bypass (D5), 500 on
 \texttt{\{"toString":\{\}\}} (D6), page scrolling sideways (D7), 22 WCAG violations (D8), call screen too wide on phones blocking
-reporting (D9), unthrottled in-call chat (D10). Final: 163 node tests, 17 browser tests, all passing.
+reporting (D9), unthrottled in-call chat (D10). Final: 190 node tests (unit, property, integration) and 17 browser tests, all passing.
 \sub{3.4 Evaluation of the results} Coverage rose from 93.4/79.3\% to 94.7/88.2\% (lines/branches). Defects were found at every level
 (unit 4, integration 2, system 1, acceptance 2, review 1), which supports using all of them; most severe ones came from robustness
 testing that the existing tests (all happy-path) could not find. Mutation score: \textbf{MUTSCORE} (\f{reports/mutation/mutation.html}{mutation.html}).

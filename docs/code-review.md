@@ -42,6 +42,7 @@ for a realtime, multi-user, safety-relevant service:
 | R11 | `server.js` `scheduleRecompute` → `matchesFor`, `inboxFor` | 8 | algorithm | 3 | Every change recomputes every searching user's list against everyone (O(N²) scores) plus several DB queries per user for the inbox. | Measured: recompute p95 26 ms @100, 188 ms @800 users (`reports/performance/latency.md`); fine now, first bottleneck later |
 | R12 | `auth.js` `validateProfile` | 3 | documentation | 4 | Bio rule allows exactly 200 characters but the message says "under 200". | Open (wording); boundary test BV-AUTH-6 pins the behaviour |
 | R13 | `friends.request` throws on self; other modules return `{ error }` | 10 | interface | 4 | Inconsistent error style; callers must know which. Server guards before calling, so not reachable. | Open (style) |
+| R15 | `matcher.js` `stem()` line 46 | 10 | algorithm | 4 | The `ies → i` rule always gives the same result as the following `es` rule ("studies" → "studi" either way): dead code. Found by mutation testing (its mutants are equivalent: no test can kill them). | Open; remove the rule |
 | R14 | `server.js` (1,460 lines) | 10 | — | 4 | One file holds matching, rooms, requests, friends, background, DMs; long handlers (`room-invite-respond`, `inboxFor`) are hard to unit test, which is why server.js has the lowest branch coverage of the core files. | Recommendation: split per feature, as already done for the domain modules |
 
 ## Things checked and found sound

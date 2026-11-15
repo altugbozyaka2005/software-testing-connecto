@@ -39,11 +39,12 @@ usability observations H1–H3, H5 in [acceptance/heuristic-evaluation.md](accep
 
 | Suite | Command | Result |
 |---|---|---|
-| unit + property + integration | `npm test` | see `reports/test-runs/` (final: all pass) |
-| coverage | `npm run test:coverage` | `reports/coverage/` (summary in evaluation.md) |
+| unit + property + integration | `npm test` | 190/190 (`reports/test-runs/final-node-tests.txt`) |
+| coverage | `npm run test:coverage` | 95.01% lines / 89.69% branches, `reports/coverage/` |
 | browser system + acceptance (desktop + phone) | `npx playwright test` | 17 tests pass, `reports/system/` |
 | accessibility | part of the above | 0 violations on 8 screens after D8 |
 | usability metrics | part of the above | all 3 tasks within target on both devices, `reports/usability/task-metrics-*.json` |
 | performance | `npm run test:perf` | QR1 met up to 800 searchers (p95 251 ms), `reports/performance/latency.md` |
 | offline A/B | `npm run test:ab` | B > A (p = 0.00015); QR3 not met (0.74), `reports/ab/matcher-ab.md` |
-| mutation | `npm run test:mutation` | `reports/mutation/mutation.html`, summary in evaluation.md |
+| mutation | `npm run test:mutation` | run 1 56.8% (`reports/mutation/run1/`) → run 2 75.3% (87.4% without vocabulary data), `reports/mutation/mutation.html` |
+| GitHub Actions | push to main | static, test, system ✓; mutation cancelled at 45 min → timeout raised (docs/ci.md) |

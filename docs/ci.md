@@ -16,7 +16,7 @@ push / merge request ──▶ static ──▶ test ──┬──▶ system �
 | Stage | Runs | Why here | Typical time |
 |---|---|---|---|
 | static | `node --check` on every server module | cheapest possible failure first | < 1 min |
-| test | unit + property + integration (163 tests) with c8 thresholds (lines ≥ 90%, branches ≥ 80%); JUnit + Cobertura reports | every push: fast (≈ 6 s of tests) and catches most defects (D1–D6, D10 were found at these levels) | ≈ 2 min incl. `npm ci` |
+| test | unit + property + integration (190 tests) with c8 thresholds (lines ≥ 90%, branches ≥ 80%); JUnit + Cobertura reports | every push: fast (≈ 6 s of tests) and catches most defects (D1–D6, D10 were found at these levels) | ≈ 2 min incl. `npm ci` |
 | system | Playwright: system journeys, user-story acceptance tests, axe audit, usability metrics; desktop + Pixel 7 | needs browsers; slower; found D7–D9 | ≈ 3 min |
 | mutation | Stryker on 8 domain modules | too slow for every push (~30 min); nightly and on main keeps the suites honest | ≈ 30 min |
 | perf / A/B | latency stress test and matcher A/B | noisy on shared runners (results are indicative, not a gate); weekly trend + on demand | ≈ 10 min |
@@ -52,5 +52,12 @@ Not automated: the usability study with people, code review (done by hand, docs/
    test-log.md. Re-running the pipeline at those commits would fail the `test` or `system` job; at the following
    `fix:` commits it passes.
 3. **Both YAML files parse** and define the jobs above (checked with PyYAML).
-4. **GitHub Actions runs:** pending. They start when the branch is pushed to GitHub (links to be added here and in the
-   portfolio: Actions tab of the repository).
+4. **Real GitHub Actions run** on the push of 13 Nov 2026:
+   <https://github.com/altugbozyaka2005/software-testing-connecto/actions/runs/43352903322> (log saved in
+   [`reports/test-runs/github-actions-run-1.txt`](../reports/test-runs/github-actions-run-1.txt)):
+   `static` ✓, `test` ✓ (190 tests, coverage gates), `system` ✓ (17 Playwright tests in Ubuntu, desktop + phone),
+   `perf` skipped (not scheduled), **`mutation` cancelled** at the 45-minute job limit. Diagnosis: once
+   `admin.test.js` joined the mutation test set (it imports every module, so Stryker runs it for most mutants) a
+   run takes ~80 min on the 4-core runner. Fix: `timeout-minutes: 120`. The pipeline behaved as designed; the
+   failure was in its configuration, and is itself an example of the pipeline reporting a problem.
+5. **After the fix:** see the next run in the Actions tab (link added below when complete).
