@@ -29,67 +29,67 @@
       "keystrokes": 74,
       "klmOperators": "MPBMPBHKKKMPBHKKKKMPBHKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMPBHKKKKKKKKKKKMPBHKKKKKKKKHMPBMPBMPBHKKKKKKKKKKKKKKKKKMK",
       "klmSeconds": 48.7,
-      "systemResponseMs": 839,
+      "systemResponseMs": 735,
       "steps": [
         {
           "kind": "click",
           "detail": "Create account tab",
           "operators": "MPB",
-          "ms": 261
+          "ms": 96
         },
         {
           "kind": "type",
           "detail": "first name",
           "operators": "MPBHKKK",
-          "ms": 251
+          "ms": 261
         },
         {
           "kind": "type",
           "detail": "last name",
           "operators": "MPBHKKKK",
-          "ms": 30
+          "ms": 48
         },
         {
           "kind": "type",
           "detail": "email",
           "operators": "MPBHKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK",
-          "ms": 33
+          "ms": 35
         },
         {
           "kind": "type",
           "detail": "password",
           "operators": "MPBHKKKKKKKKKKK",
-          "ms": 35
+          "ms": 55
         },
         {
           "kind": "type",
           "detail": "date of birth (typed as digits)",
           "operators": "MPBHKKKKKKKK",
-          "ms": 32
+          "ms": 47
         },
         {
           "kind": "click",
           "detail": "accept guidelines",
           "operators": "HMPB",
-          "ms": 24
+          "ms": 33
         },
         {
           "kind": "click",
           "detail": "Create account",
           "operators": "MPB",
-          "ms": 35
+          "ms": 33
         },
         {
           "kind": "type",
           "detail": "activity",
           "operators": "MPBHKKKKKKKKKKKKKKKKK",
-          "ms": 133
+          "ms": 121
         },
         {
           "kind": "key",
           "detail": "submit activity",
           "operators": "MK",
-          "ms": 5
+          "ms": 6
         }
       ]
     },
@@ -101,13 +101,13 @@
       "keystrokes": 0,
       "klmOperators": "MPB",
       "klmSeconds": 2.7,
-      "systemResponseMs": 32,
+      "systemResponseMs": 47,
       "steps": [
         {
           "kind": "click",
           "detail": "match card",
           "operators": "MPB",
-          "ms": 32
+          "ms": 47
         }
       ]
     },
@@ -119,25 +119,25 @@
       "keystrokes": 0,
       "klmOperators": "MPBMPBMPB",
       "klmSeconds": 8,
-      "systemResponseMs": 1694,
+      "systemResponseMs": 1699,
       "steps": [
         {
           "kind": "click",
           "detail": "report button",
           "operators": "MPB",
-          "ms": 1614
+          "ms": 1617
         },
         {
           "kind": "click",
           "detail": "reason",
           "operators": "MPB",
-          "ms": 45
+          "ms": 48
         },
         {
           "kind": "click",
           "detail": "send",
           "operators": "MPB",
-          "ms": 35
+          "ms": 34
         }
       ]
     }

@@ -104,8 +104,8 @@ $\rightarrow$ system (browsers) $\rightarrow$ mutation (nightly) and perf/A-B (w
 \sub{5.3 Automate some aspects of the testing} Everything except the user study and review runs in the pipeline; \texttt{ci.md} maps each kind of issue
 (D1--D10 as examples) to the job that would catch it.
 \sub{5.4 Demonstrate the CI pipeline functions as expected} The test stage first ran in a clean \texttt{node:24} container from \texttt{git archive}
-(\f{reports/test-runs/ci-local-docker-node24.txt}{log}), then on GitHub Actions
-(\href{https://github.com/altugbozyaka2005/software-testing-connecto/actions/runs/43352903322}{run 1}): static, test and browser jobs
-passed; the mutation job was cancelled at its 45-minute limit, diagnosed (it needs $\sim$80 min) and fixed
-(\f{docs/ci.md}{ci.md} 5.4). Every red commit in the history is a pipeline failure by construction.
+(\f{reports/test-runs/ci-local-docker-node24.txt}{log}), then on GitHub Actions. In
+\href{https://github.com/altugbozyaka2005/software-testing-connecto/actions/runs/43352903322}{run 1} static, test and browser jobs
+passed, but the mutation job was cancelled at its 45-minute limit. I diagnosed and fixed this, and
+\href{https://github.com/altugbozyaka2005/software-testing-connecto/actions/runs/43735276129}{run 2} passed every job, including mutation (75.54\%, consistent with the local 75.3\%, in 116 min; the limit was then raised to 180 min) (\f{docs/ci.md}{ci.md} 5.4). Every red commit in the history is a pipeline failure by construction.
 \end{document}

@@ -1,0 +1,21 @@
+
+Running 17 tests using 2 workers
+
+[1/17] [desktop-chromium] › test/acceptance/stories.spec.js:21:1 › US-1: Given two people studying the same thing, when they search, then each sees the other and they are in a call after one click each
+[2/17] [desktop-chromium] › test/acceptance/accessibility.spec.js:32:1 › A11Y-1: sign-in, create-account and check-your-inbox screens
+[3/17] [desktop-chromium] › test/acceptance/accessibility.spec.js:43:1 › A11Y-2: activity prompt, matches with a card, incoming panel, call and report dialog
+[4/17] [desktop-chromium] › test/acceptance/stories.spec.js:36:1 › US-2: Given a stranger sees me in matches, requests or a call, then they never see my surname, email or date of birth
+[5/17] [desktop-chromium] › test/acceptance/stories.spec.js:56:1 › US-3: Given I am in a call with someone abusive, when I report and block them, then the call ends and we never see each other again
+[6/17] [desktop-chromium] › test/acceptance/accessibility.spec.js:67:1 › A11Y-3: everything on the sign-in screen can be reached and used with the keyboard alone
+[7/17] [desktop-chromium] › test/acceptance/usability.spec.js:73:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots
+[8/17] [desktop-chromium] › test/acceptance/stories.spec.js:82:1 › US-4: Given two people doing unrelated things, then they are not offered to each other
+[9/17] [desktop-chromium] › test/system/journeys.spec.js:11:1 › ST-1: sign up, confirm email, find a match, request, accept, video call, chat, leave
+[10/17] [mobile-chromium] › test/acceptance/usability.spec.js:73:1 › USE-1 @mobile: core tasks T1-T3 on the shortest path, with KLM time estimates and screenshots
+[11/17] [desktop-chromium] › test/system/journeys.spec.js:56:1 › ST-2: registration refuses under-18s and shows field errors in the form
+[12/17] [desktop-chromium] › test/system/journeys.spec.js:64:1 › ST-3: an unconfirmed account waits on "Check your inbox" and cannot reach matching
+[13/17] [desktop-chromium] › test/system/journeys.spec.js:74:1 › ST-4: sign out, wrong password, then sign back in
+[14/17] [desktop-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7]
+[15/17] [desktop-chromium] › test/system/journeys.spec.js:113:1 › ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent
+[16/17] [mobile-chromium] › test/system/journeys.spec.js:91:1 › ST-5 @mobile: the main screens cannot be scrolled sideways (phone and desktop) [D7]
+[17/17] [mobile-chromium] › test/system/journeys.spec.js:113:1 › ST-6 @mobile: in a call on a phone the page stays phone-width and a report can be sent
+  17 passed (40.2s)

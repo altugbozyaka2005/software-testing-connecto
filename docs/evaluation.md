@@ -85,7 +85,7 @@ are always initialised (near-equivalent).
 - **Mutation:** safety.js to ≥ 80% needs assertions on the admin email body and a decision on the `?.` guards
   (remove them if they can never be undefined, which also removes the equivalent mutants); extend the scope to
   `server.js` with the integration suite (≈ 2 s per mutant, a nightly job of a few hours) or split server.js so its
-  logic can be unit tested (R14). Mutation testing in CI takes ~80 min, so it runs nightly/on main, not per push.
+  logic can be unit tested (R14). Mutation testing in CI takes ~2 h (116 min on GitHub run 2), so it runs nightly/on main, not per push.
 - **Usability validation:** run the study (13 participants, ~1 h each, ~15 h including analysis); fix H1 (stale toasts over the call controls) first.
 - **Coverage of the gaps in §1:** browser tests for group rooms and Connects (~4 h), migration test (~1 h), cleanup jobs under a fake clock (~1 h),
   Safari/Firefox projects (~1 h plus fixing what they find).

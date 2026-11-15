@@ -18,7 +18,7 @@ push / merge request ──▶ static ──▶ test ──┬──▶ system �
 | static | `node --check` on every server module | cheapest possible failure first | < 1 min |
 | test | unit + property + integration (190 tests) with c8 thresholds (lines ≥ 90%, branches ≥ 80%); JUnit + Cobertura reports | every push: fast (≈ 6 s of tests) and catches most defects (D1–D6, D10 were found at these levels) | ≈ 2 min incl. `npm ci` |
 | system | Playwright: system journeys, user-story acceptance tests, axe audit, usability metrics; desktop + Pixel 7 | needs browsers; slower; found D7–D9 | ≈ 3 min |
-| mutation | Stryker on 8 domain modules | too slow for every push (~30 min); nightly and on main keeps the suites honest | ≈ 30 min |
+| mutation | Stryker on 8 domain modules (1,994 mutants) | too slow for every push; nightly and on main keeps the suites honest | ≈ 2 h on GitHub's runner |
 | perf / A/B | latency stress test and matcher A/B | noisy on shared runners (results are indicative, not a gate); weekly trend + on demand | ≈ 10 min |
 
 Design decisions: the 280 MB matching model is cached between runs (key never changes unless the model does);
@@ -58,6 +58,12 @@ Not automated: the usability study with people, code review (done by hand, docs/
    `static` ✓, `test` ✓ (190 tests, coverage gates), `system` ✓ (17 Playwright tests in Ubuntu, desktop + phone),
    `perf` skipped (not scheduled), **`mutation` cancelled** at the 45-minute job limit. Diagnosis: once
    `admin.test.js` joined the mutation test set (it imports every module, so Stryker runs it for most mutants) a
-   run takes ~80 min on the 4-core runner. Fix: `timeout-minutes: 120`. The pipeline behaved as designed; the
+   run takes well over 45 min on the hosted runner. Fix: `timeout-minutes: 120`. The pipeline behaved as designed; the
    failure was in its configuration, and is itself an example of the pipeline reporting a problem.
-5. **After the fix:** see the next run in the Actions tab (link added below when complete).
+5. **After the fix**, GitHub Actions run 2 on 15 Nov 2026:
+   <https://github.com/altugbozyaka2005/software-testing-connecto/actions/runs/43735276129> (log saved in
+   [`reports/test-runs/github-actions-run-2.txt`](../reports/test-runs/github-actions-run-2.txt)): **all jobs green**:
+   `static` ✓ (19 s), `test` ✓ (30 s; 190 tests, coverage gates), `system` ✓ (2 min 15 s; 17 Playwright tests),
+   `mutation` ✓ (1 h 57 min; **score 75.54%**, above the break threshold of 60, matching the local 75.3%), `perf`
+   skipped (weekly/manual). The mutation job took 116 of its 120 minutes, which is too little headroom, so the limit
+   was raised to 180 min (GitLab: 3 h) in the commit that records this run.
