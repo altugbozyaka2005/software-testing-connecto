@@ -30,19 +30,19 @@ start at \f{README.md}{README.md} $\rightarrow$ \f{docs}{docs/}. The 51 tests th
 all testing work is from 12 Nov 2026 onwards in the git history.
 
 \lo{1}{Analyze requirements to determine appropriate testing strategies [20\%]}
-\sub{1.1 Range of requirements} \f{docs/requirements.md}{requirements.md} lists 20 requirements from 6 stakeholders: functional
+\sub{1.1 Range of requirements, functional requirements, measurable quality attributes, qualitative requirements} \f{docs/requirements.md}{requirements.md} lists 20 requirements from 6 stakeholders: functional
 safety/correctness/liveness (FR1--FR8, e.g.\ adults only, mutual filters, return to matching after a call), security/robustness
 (SR1--SR6, e.g.\ \emph{no client input can stop the server}), privacy (PR1), measurable quality attributes (QR1 latency p95
 $\le$ 1\,s at 100 searchers, QR2 capacity envelope, QR3 matching accuracy $\ge$ 0.85), qualitative ones (QA-ACC1 WCAG 2.1 AA,
 QA-U1 usability with click/time targets) and 4 user stories with acceptance criteria.
-\sub{1.2 Levels} Each requirement is placed at the level where it is first observable (table column ``Level''): rules in small
+\sub{1.2 Level of requirements, system, integration, unit} Each requirement is placed at the level where it is first observable (table column ``Level''): rules in small
 modules at unit level (\texttt{matcher}, \texttt{prefs}, validators, the request state machine), composition over sockets at
 integration level, and latency, privacy on screen, accessibility and usability only at system level.
-\sub{1.3 Test approach} One approach per requirement chosen for its structure: boundaries for numeric rules (age 18, rate limits),
+\sub{1.3 Identifying test approach for chosen attributes} One approach per requirement chosen for its structure: boundaries for numeric rules (age 18, rate limits),
 pairwise for 10 interacting filter parameters, an FSM model for history-dependent requests, fuzzing for an unbounded hostile
 input space, statistics on labelled pairs for the ML matcher (no exact oracle), load tests with instrumentation, axe and
 keystroke-level modelling for usability (table ``Test approach per requirement and why'').
-\sub{1.4 Appropriateness} The same document states the limits: matching labels are one person's judgement; the load profile is
+\sub{1.4 Assess the appropriateness of your chosen testing approach} The same document states the limits: matching labels are one person's judgement; the load profile is
 synthetic (no production data); WebRTC is tested with fake devices on one machine, not through TURN; automated usability only
 \emph{verifies} and real users are needed to validate; no penetration testing.
 
@@ -52,9 +52,9 @@ synthetic (no production data); WebRTC is tested with fake devices on one machin
 release and operation; priorities by risk with $\ge$2 independent approaches for every high-priority requirement; risks and
 mitigations; entry/exit criteria. TDD was used for every defect: a \texttt{test:\,\ldots (red)} commit, then a separate \texttt{fix:} commit.
 The plan evolved: D6 showed the fuzz generators were too narrow, D9 only appeared because usability metrics also ran on a phone.
-\sub{2.2 Evaluation of the plan} Section 7 names omissions (group rooms and Connects UI not tested in browsers, no migration test
+\sub{2.2 Evaluation of the quality of the test plan} Section 7 names omissions (group rooms and Connects UI not tested in browsers, no migration test
 from an old database, no security scanning) and vulnerabilities (QR1 rests on a synthetic profile, QR3 on one labeller).
-\sub{2.3 Instrumentation and scaffolding} \f{metrics.js}{metrics.js} + token-guarded \texttt{GET /metrics}: counters per socket event,
+\sub{2.3 Instrumentation of the code} \f{metrics.js}{metrics.js} + token-guarded \texttt{GET /metrics}: counters per socket event,
 handler errors, the request funnel, refused connections; recompute-time percentiles; event-loop delay. Scaffolding
 (\f{test/support}{test/support/}): in-memory DB and mail, a controllable clock for 7-day/48-h/10-s windows, a self-checked pairwise
 generator, an executable FSM model, a separate-process server that reads email links from its console (no test-only routes),
@@ -70,40 +70,42 @@ boundary values, pairwise with an independent oracle (32 cases instead of 196{,}
 transition coverage plus 200 random walks against a model, property-based testing (fast-check), fuzzing of all 39 socket events
 and 8 HTTP routes, fault injection, structural coverage, mutation testing, load/stress, offline A/B, browser system tests with real
 WebRTC calls, executable user stories, axe audits and KLM. Levels: unit, property, integration, system, acceptance.
-\sub{3.2 Adequacy criteria} Statement/branch coverage as a floor (lines $\ge$90\%, branches $\ge$80\%, enforced in CI); transition
+\sub{3.2 Evaluation criteria for the adequacy of the testing} Statement/branch coverage as a floor (lines $\ge$90\%, branches $\ge$80\%, enforced in CI); transition
 coverage of the FSM; all-pairs for filters; every boundary on both sides; mutation score for assertion strength; for the matcher,
 accuracy with confidence intervals because coverage says nothing about an ML component.
-\sub{3.3 Results} \f{docs/test-log.md}{test-log.md}: 10 defects, each with red and green evidence. Two critical ones:
+\sub{3.3 Results of testing} \f{docs/test-log.md}{test-log.md}: 10 defects, each with red and green evidence. Two critical ones:
 one WebSocket handshake with a malformed cookie (D1), or one \texttt{null} socket payload from any user (D4), crashed the whole
 server. Others: report-reason validation bypass (D2), non-Latin text scoring 0 (D3), request-limit bypass (D5), 500 on
 \texttt{\{"toString":\{\}\}} (D6), page scrolling sideways (D7), 22 WCAG violations (D8), call screen too wide on phones blocking
 reporting (D9), unthrottled in-call chat (D10). Final: 190 node tests (unit, property, integration) and 17 browser tests, all passing.
-\sub{3.4 Evaluation of the results} Coverage rose from 93.4/79.3\% to 94.7/88.2\% (lines/branches). Defects were found at every level
+\sub{3.4 Evaluation of the results} Coverage rose from 93.4/79.3\% to 95.0/89.7\% (lines/branches). Defects were found at every level
 (unit 4, integration 2, system 1, acceptance 2, review 1), which supports using all of them; most severe ones came from robustness
-testing that the existing tests (all happy-path) could not find. Mutation score: \textbf{MUTSCORE} (\f{reports/mutation/mutation.html}{mutation.html}).
+testing that the existing tests (all happy-path) could not find. Mutation testing judged the suites themselves: run 1 scored only 56.8\% despite 94.7\% line coverage; the survivors exposed one-sided time-window tests, threshold-only score checks, a tautological oracle and dead code; after the mutation-driven tests run 2 scored 75.3\% (87.4\% excluding vocabulary data) (\f{reports/mutation/mutation.html}{mutation.html}).
 
 \lo{4}{Evaluate the limitations of a given testing process, using statistical methods where appropriate, and summarise outcomes [20\%]}
-\sub{4.1 Gaps and omissions} \f{docs/evaluation.md}{evaluation.md} \S1: untested in browsers (group rooms, Connects, admin page),
+\sub{4.1 Identifying gaps and omissions in the testing process} \f{docs/evaluation.md}{evaluation.md} \S1: untested in browsers (group rooms, Connects, admin page),
 no real-network WebRTC, no users in the usability study yet, single labeller, \texttt{server.js} out of mutation scope, no security scanning.
-\sub{4.2 Targets} \S2 justifies each target from risk: coverage floors, mutation $\ge$70\% overall and $\ge$80\% for safety modules, QR1--3,
+\sub{4.2 Identifying target coverage/performance levels for the different testing procedures} \S2 justifies each target from risk: coverage floors, mutation $\ge$70\% overall and $\ge$80\% for safety modules, QR1--3,
 zero serious WCAG violations, KLM task limits, and a robustness target stated as a failure probability.
-\sub{4.3 Achieved vs target} \S3: QR1 met to 800 searchers (p95 251\,ms, bootstrap CI); QA-ACC1 and QA-U1 (automated part) met;
-coverage met; MUTCOMPARE. QR3 \emph{not} met: the A/B shows B beats the word-only fallback (exact McNemar $p=0.00015$, accuracy
-0.74 vs 0.57) but specificity is only 0.47. With 0 failures in FUZZN fuzzed messages, the rule of three bounds the per-message crash
-probability below FUZZBOUND (95\%), for this (non-operational) input distribution.
-\sub{4.4 What is needed} \S4: for QR3, remove generic verbs from the category floor (candidate C: 0.82, not yet significant,
+\sub{4.3 Discussing how the testing carried out compares with the target levels} \S3: QR1 met to 800 searchers (p95 251\,ms, bootstrap CI); QA-ACC1 and QA-U1 (automated part) met;
+coverage met; mutation 75.3\% $\ge$ 70\% (safety.js 79\%, just under its 80\%). QR3 \emph{not} met: the A/B shows B beats the word-only fallback (exact McNemar $p=0.00015$, accuracy
+0.74 vs 0.57) but specificity is only 0.47. With 0 failures in 1{,}180 fuzzed messages, the rule of three bounds the per-message crash
+probability below 0.25\% (95\%), for this (non-operational) input distribution.
+\sub{4.4 Discussion of what would be necessary to achieve the target levels} \S4: for QR3, remove generic verbs from the category floor (candidate C: 0.82, not yet significant,
 $p=0.057$) and a larger multi-labeller set with a hold-out split; for mutation, the listed surviving mutants; real-user study
 (protocol ready); production metrics for a real operational profile.
 
 \lo{5}{Conduct reviews and inspections and design and implement automated testing processes [20\%]}
-\sub{5.1 Review} \f{docs/code-review.md}{code-review.md}: checklist inspection (lecture checklist + untrusted input, abuse limits,
+\sub{5.1 Identify and apply review criteria to selected parts of the code and identify issues in the code} \f{docs/code-review.md}{code-review.md}: checklist inspection (lecture checklist + untrusted input, abuse limits,
 privacy, side effects, resources) of the riskiest modules; 14 issues with ODC type and severity. Review found D10 (then a failing
 test), traced D4 and D6 to whole classes of call sites, and found issues no test exercised (R8--R14).
-\sub{5.2 CI pipeline} \f{.github/workflows/ci.yml}{ci.yml} and \f{.gitlab-ci.yml}{.gitlab-ci.yml}: static $\rightarrow$ test (with coverage gates)
+\sub{5.2 Construct an appropriate CI pipeline for the software} \f{.github/workflows/ci.yml}{ci.yml} and \f{.gitlab-ci.yml}{.gitlab-ci.yml}: static $\rightarrow$ test (with coverage gates)
 $\rightarrow$ system (browsers) $\rightarrow$ mutation (nightly) and perf/A-B (weekly); design rationale in \f{docs/ci.md}{ci.md}.
-\sub{5.3 Automated testing} Everything except the user study and review runs in the pipeline; \texttt{ci.md} maps each kind of issue
+\sub{5.3 Automate some aspects of the testing} Everything except the user study and review runs in the pipeline; \texttt{ci.md} maps each kind of issue
 (D1--D10 as examples) to the job that would catch it.
-\sub{5.4 Pipeline functions} The test stage run in a clean \texttt{node:24} container from \texttt{git archive}: 163/163, coverage reports
-produced (\f{reports/test-runs/ci-local-docker-node24.txt}{log}); every red commit is a pipeline failure by construction.
-GITHUBRUN
+\sub{5.4 Demonstrate the CI pipeline functions as expected} The test stage first ran in a clean \texttt{node:24} container from \texttt{git archive}
+(\f{reports/test-runs/ci-local-docker-node24.txt}{log}), then on GitHub Actions
+(\href{https://github.com/altugbozyaka2005/software-testing-connecto/actions/runs/43352903322}{run 1}): static, test and browser jobs
+passed; the mutation job was cancelled at its 45-minute limit, diagnosed (it needs $\sim$80 min) and fixed
+(\f{docs/ci.md}{ci.md} 5.4). Every red commit in the history is a pipeline failure by construction.
 \end{document}
